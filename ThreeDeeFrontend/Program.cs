@@ -1,4 +1,5 @@
 using System.Net.Http;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +22,19 @@ builder.Services.AddScoped<IGCodeSettingsRepository, GCodeSettingsRepository>();
 builder.Services.AddScoped<IFileRepository>(sp => new FileRepository(sp.GetService<HttpClient>()!, sp.GetService<IConfiguration>()!["UsersEndpoint"]));
 builder.Services.AddScoped<IFilesGridViewModel, FilesGridViewModel>();
 
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+builder.Services.AddAuthentication().AddGoogle(googleOptions =>
+{
+    googleOptions.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+    googleOptions.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
+});
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<HttpContextAccessor>();
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<HttpClient>();
+
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -29,8 +43,10 @@ if (!app.Environment.IsDevelopment())
     //app.UseHsts();
 }
 
-//app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseCookiePolicy();
+app.UseAuthentication();
 app.UseRouting();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");

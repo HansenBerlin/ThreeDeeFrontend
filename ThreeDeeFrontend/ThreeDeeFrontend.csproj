@@ -10,6 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="7.0.4" />
       <PackageReference Include="MudBlazor" Version="6.1.8" />
     </ItemGroup>
 
@@ -38,6 +39,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Pages\Identity" />
       <Folder Include="wwwroot\assets" />
     </ItemGroup>
 
