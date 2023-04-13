@@ -49,16 +49,21 @@ h1:focus {
         content: "An error has occurred."
     }
 
-* {
+/** {
+    font-family: 'Segoe UI', 'Segoe UI Web', Arial, Verdana, sans-serif;
+}*/
+ 
+h4, h5, h6, p{
     font-family: 'Segoe UI', 'Segoe UI Web', Arial, Verdana, sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, p{
-    font-family: 'Segoe UI', 'Segoe UI Web', Arial, Verdana, sans-serif;
+h1, h2, h3{
+    font-family: 'JetBrains Mono', Arial, Verdana, sans-serif;
 }
 
 .statstable {
     font-family: 'Segoe UI', 'Segoe UI Web', Arial, Verdana, sans-serif;
+    font-weight: bold;
     border-collapse: collapse;
 }
 
@@ -79,5 +84,26 @@ h1, h2, h3, h4, h5, h6, p{
     padding-bottom: 6px;
     text-align: left;
 }
-    
-    
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url(../fonts/JetBrainsMono-Regular.ttf)format('truetype');
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url(../fonts/JetBrainsMono-SemiBold.ttf)format('truetype');
+}
+.page-background {
+    background-image:url(../pictures/background.png);
+    background-size: 100vw 100vh;
+    overflow: hidden!important;
+    height: 91vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+}
+.left-content {
+    padding-left: 15%;
+    padding-top: 7%;
+}

@@ -1,0 +1,21 @@
+
+/*.left-content {
+  padding-left: 15%;
+  padding-top: 7%;
+  /*15%, 7%
+}*/
+/*.page-background {
+    background-image:url(./pictures/background.png);
+    background-size: 100vw 100vh;
+    overflow: hidden!important;
+    height: 91vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+}*/
+
+.button-position {
+    font-size: 18px;
+    padding: 12px 80px;
+    margin-top: 24px;    
+}
