@@ -15,11 +15,17 @@ public partial class Index
     public AuthenticationValidator AuthenticationValidator { get; set; }
 
     private bool _isInitDone;
-    private string _userId;
+    private string _userId = "";
+    private bool _isAuthenticated;
 
     protected override async Task OnInitializedAsync()
     {
-        _userId = await AuthenticationValidator.GetUserId();
-        _isInitDone = _userId != "";
+        _isAuthenticated = await AuthenticationValidator.GetAuthenticationState();
+        if (_isAuthenticated)
+        {
+            _userId = await AuthenticationValidator.GetUserId();
+        }
+
+        _isInitDone = true;
     }
 }

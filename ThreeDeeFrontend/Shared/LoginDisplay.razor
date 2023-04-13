@@ -1,11 +1,26 @@
 <AuthorizeView>
     <Authorized>
         <form method="post" action="Identity/Account/Logout">
-            <button type="submit" class="nav-link btn btn-link">@Localization.SharedLoginLogOut</button>
+            <MudButton
+                ButtonType="ButtonType.Submit"
+                Variant="Variant.Text"
+                StartIcon="@Icons.Material.Filled.Logout">
+                @Localization.SharedLoginLogOut
+            </MudButton>
         </form>
     </Authorized>
     <NotAuthorized>
-        <a href="Identity/Account/Register">@Localization.SharedLoginRegister</a>
-        <a href="Identity/Account/Login">@Localization.SharedLoginLogIn</a>
+        <MudButton
+            Variant="Variant.Filled"
+            Href="/Identity/Account/Register"
+            StartIcon="@Icons.Material.Filled.AppRegistration">
+            @Localization.SharedLoginRegister
+        </MudButton>
+        <MudButton
+            Variant="Variant.Filled"
+            Href="/Identity/Account/Login"
+            StartIcon="@Icons.Material.Filled.Login">
+            @Localization.SharedLoginLogIn
+        </MudButton>
     </NotAuthorized>
 </AuthorizeView>

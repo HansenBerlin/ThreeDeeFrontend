@@ -6,7 +6,6 @@
 @using Microsoft.AspNetCore.Components
 @using ThreeDeeFrontend.Services
 @using ThreeDeeInfrastructure.Services
-@inject TopMenuViewModel TopMenuViewModel
 
 <PageTitle>@Localization.SharedMainPageTitle</PageTitle>
 <MudThemeProvider 
@@ -16,27 +15,29 @@
 <MudDialogProvider/>
 <MudSnackbarProvider/>
 <MudLayout>
-    <MudAppBar Elevation="1">
-        <MudButton
-            Typo="Typo.h5"
-            Class="ml-3" Href="/">
-            Logo
-        </MudButton>
+    <MudAppBar Elevation="1" Style="@($"background: {MenuBarBackgroundColor()};")">
+        <a href="/">
+            <img src="assets/logo3d.png" style="height: 48px;"/>
+        </a>
         <div class="d-flex justify-center flex-grow-1 gap-4">
+            <MudButton Variant="Variant.Filled">Files</MudButton>
+            <MudButton Variant="Variant.Filled">Contribute</MudButton>
+            <MudButton Variant="Variant.Filled">Services</MudButton>
+            <MudButton Variant="Variant.Filled">Contact</MudButton>
+        </div>
+        <div style="padding-right: 50px; display: flex; align-items: center; align-content: center;">
             @if (_isAuthenticated)
             {
                 <FileUpload/>
             }
-        </div>
-        <div style="padding-right: 50px;">
             <LoginDisplay/>
         </div>
-        <MudSwitch 
+        <MudSwitch
             @bind-Checked="@ThemeProviderService.IsDarkMode"
-            Color="Color.Primary" T="bool" 
-            Label="@(ThemeProviderService.IsDarkMode ? @Localization.SharedMainDarkModeDark : @Localization.SharedMainDarkModeLight)"/>
+            Color="Color.Primary" T="bool"
+            Label="@(ThemeProviderService.IsDarkMode ? Localization.SharedMainDarkModeDark : Localization.SharedMainDarkModeLight)"/>
     </MudAppBar>
-    <MudMainContent>
+    <MudMainContent Style="height: 100vh;">
         @Body
     </MudMainContent>
 </MudLayout>
@@ -55,7 +56,7 @@
     private readonly MudTheme _theme = new();
     private const string SaveSettingsKey = "threedeedarkmodesetting";
     private bool _isAuthenticated;
-    
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -92,6 +93,17 @@
         {
             Console.WriteLine(e);
         }
+    }
+
+    private string MenuBarBackgroundColor()
+    {
+        bool isDarkMode = ThemeProviderService.IsDarkMode;
+        return _isAuthenticated switch
+        {
+            true when isDarkMode => "#3F51B5",
+            true when isDarkMode == false => "#C5CAE9",
+            _ => "transparent"
+            };
     }
 }
 

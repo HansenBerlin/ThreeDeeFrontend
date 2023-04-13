@@ -50,7 +50,6 @@
 
     <ItemGroup>
       <Folder Include="unsafe_uploads\" />
-      <Folder Include="wwwroot\assets" />
     </ItemGroup>
 
     <ItemGroup>
