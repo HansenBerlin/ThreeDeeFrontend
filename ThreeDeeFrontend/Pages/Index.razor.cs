@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using ThreeDeeApplication.Enums;
 using ThreeDeeApplication.Models;
+using ThreeDeeFrontend.Services;
 using ThreeDeeFrontend.ViewModels;
 using ThreeDeeInfrastructure.Repositories;
 
@@ -11,14 +12,14 @@ namespace ThreeDeeFrontend.Pages;
 public partial class Index
 {
     [Inject]
-    public IFilesGridViewModel Vm { get; set; }
+    public AuthenticationValidator AuthenticationValidator { get; set; }
 
-    protected override async Task OnAfterRenderAsync(bool isFirstRender)
+    private bool _isInitDone;
+    private string _userId;
+
+    protected override async Task OnInitializedAsync()
     {
-        if (isFirstRender)
-        {
-            Vm.FilesChanged = EventCallback.Factory
-                .Create(this, async () => await InvokeAsync(StateHasChanged));
-        }
+        _userId = await AuthenticationValidator.GetUserId();
+        _isInitDone = _userId != "";
     }
 }

@@ -21,13 +21,12 @@ builder.Services.AddHttpClient();
 builder.Services.AddMudServices();
 builder.Services.AddSingleton<IEndpointService, EndpointService>();
 builder.Services.AddSingleton<IRepository<FileModel, FileModel>, Repository<FileModel, FileModel>>();
-builder.Services.AddSingleton<IRepository<FileModelComplete, FileModelComplete>, Repository<FileModelComplete, FileModelComplete>>();
 builder.Services.AddSingleton<IRepository<GCodeSettingsModel, GCodeSettingsModel>, Repository<GCodeSettingsModel, GCodeSettingsModel>>();
 builder.Services.AddScoped<TopMenuViewModel>();
 builder.Services.AddScoped<IJsInteropService<ModelRenderer>, JsInteropService<ModelRenderer>>();
 builder.Services.AddScoped<IThemeProviderService, ThemeProviderService>();
 builder.Services.AddScoped<IGCodeSettingsRepository, GCodeSettingsRepository>();
-builder.Services.AddScoped<IFileRepository>(sp => new FileRepository(sp.GetService<HttpClient>()!, sp.GetService<IConfiguration>()!["UsersEndpoint"]));
+builder.Services.AddScoped<AuthenticationValidator>();
 
 builder.Services.AddScoped<IFilesGridViewModel, FilesGridViewModel>();
 

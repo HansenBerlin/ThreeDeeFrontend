@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Components;
 using MudBlazor;
 using ThreeDeeApplication.Enums;
 using ThreeDeeApplication.Models;
+using ThreeDeeFrontend.Services;
 using ThreeDeeInfrastructure.Repositories;
 using ThreeDeeInfrastructure.ResponseModels;
 
@@ -15,35 +16,38 @@ public class FilesGridViewModel : IFilesGridViewModel
     public List<FileModel> FilteredFiles { get; private set; } = new();
     public Filetype FileAccessStatus { get; private set; }
     
-    private readonly List<FileModel> _files = new();
-    private IRepository<FileModel, FileModel> FileRepository { get; } 
+    private List<FileModel> _files = new();
+    private readonly IRepository<FileModel, FileModel> _fileRepository;
+    private string _userId = "";
     
     public FilesGridViewModel(IRepository<FileModel, FileModel> fileRepository)
     {
-        FileRepository = fileRepository;
-        ChangeStatus(FileAccessStatus);
+        _fileRepository = fileRepository;
     }
 
-    public async Task ChangeStatus(Filetype newStatus)
+    
+    
+    public async Task UpdateFilteredFiles(Filetype newStatus)
     {
-        FileAccessStatus = newStatus;
-        _files.Clear();
-        IEnumerable<FileModel> test = new List<FileModel>();
         if (newStatus == Filetype.Public)
         {
-            test = await FileRepository.GetAll("public");
+            FilteredFiles = new List<FileModel>(_files);
         }
         else
         {
-            test = await FileRepository.GetAll("tst"); //TODO Get Username
+            FilteredFiles = new List<FileModel>(_files);
         }
         
-        foreach (var file in test)
-        {
-            _files.Add(file);
-        }
-
+        await FilesChanged.InvokeAsync();
+    }
+    
+    public async Task Init(string userId)
+    {
+        _userId = userId;
+        var files = await _fileRepository.GetAll($"user/{_userId}");
+        _files = new List<FileModel>(files);
         FilteredFiles = new List<FileModel>(_files);
+        await FilesChanged.InvokeAsync();
     }
     
     public async Task<IEnumerable<string>> UpdateFilteredFiles(string searchValue)
@@ -57,10 +61,10 @@ public class FilesGridViewModel : IFilesGridViewModel
         else
         {
             FilteredFiles = new List<FileModel>(_files)
-                .Where(x => x.Name
-                    .Contains(searchValue, StringComparison.InvariantCultureIgnoreCase) && x.Filetype == FileAccessStatus)
+                .Where(x => x.FullName
+                    .Contains(searchValue, StringComparison.InvariantCultureIgnoreCase) && x.Permission == "owner")
                 .ToList();
-            filtered = FilteredFiles.Select(x => x.Name);
+            filtered = FilteredFiles.Select(x => x.FullName);
         }
         await FilesChanged.InvokeAsync();
         return filtered;

@@ -14,7 +14,7 @@ public partial class ModelRenderer
     public string Name { get; set; }
     
     [Parameter]
-    public int Id { get; set; }
+    public string Id { get; set; }
     
     [Parameter]
     public EventCallback<double> ProgressHasChanged { get; set; }

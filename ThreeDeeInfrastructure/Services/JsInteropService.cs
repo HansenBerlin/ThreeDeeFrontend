@@ -14,13 +14,13 @@ public class JsInteropService<T> : IJsInteropService<T> where T : class
             .InvokeAsync<IJSObjectReference>("import", "./js/renderController.js").AsTask());
     }
 
-    public async Task AddFile(string path, string color, int id, DotNetObjectReference<T> dotnetObjRef)
+    public async Task AddFile(string path, string color, string id, DotNetObjectReference<T> dotnetObjRef)
     {
         IJSObjectReference module = await _jsApiModule.Value;
         await module.InvokeVoidAsync("addModel", path, color, id, dotnetObjRef);
     }
 
-    public async Task ChangeColor(string newColor, int id)
+    public async Task ChangeColor(string newColor, string id)
     {
         IJSObjectReference module = await _jsApiModule.Value;
         await module.InvokeVoidAsync("changeToColor", newColor, id);

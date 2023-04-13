@@ -5,20 +5,12 @@
 
 <MudContainer MaxWidth="MaxWidth.Large">
     <MudText Style="padding-top: 50px;" Typo="Typo.h2"> @Localization.PagesIndexTitle</MudText>
-    <div style="width: 100%; display: flex;">
-        <div style="width: 100%; margin-right: 20px; ">
-            <SearchBar 
-                Search="@Vm.UpdateFilteredFiles" 
-                SelectedSearchValue="@Vm.SelectedSearchValue" />
-        </div>
-        <div style="display: flex; flex-direction: row-reverse; align-items: flex-end; gap: 10px"> 
-            <FileAccessFilter 
-                FiletypeHasChanged="async f =>  await Vm.ChangeStatus(f)"
-                Status="Vm.FileAccessStatus"
-                />
-        </div>
-    </div>
-    <FileUpload></FileUpload>
-    <FileGrid Files="Vm.FilteredFiles" ></FileGrid>
-    
+    @if (_isInitDone)
+    {
+        <FileGrid UserId="@_userId"/>
+    }
+    else
+    {
+        <p>Waiting for initialization</p>
+    }
 </MudContainer>

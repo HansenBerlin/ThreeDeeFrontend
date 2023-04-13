@@ -20,7 +20,7 @@
             <CardHeaderContent>
                 <MudText
                     Typo="Typo.h6">
-                    @_file.Name
+                    @_file.FullName
                 </MudText>
             </CardHeaderContent>
             <CardHeaderActions>
@@ -35,14 +35,14 @@
             @if (_avoidRendering)
             {
                 <MudCardMedia
-                    Image="@($"assets/{_file.Name}.png")"
+                    Image="@($"assets/{_file.FullName}.png")"
                     Style="height: 50vh; border-style: solid; border-width: 1px; border-radius: 4px; border-color: #f0f8ff36;"/>
             }
             else
             {
                 <ModelRenderer
                     @ref="_modelRendererRef"
-                    Name="@_file.Name"
+                    Name="@_file.FullName"
                     Id="@_file.Id"
                     ProgressHasChanged="ProgressHasChangedCallback"
                     ColorValue="@_color.Value[..7]"/>
@@ -59,14 +59,14 @@
             <MudGrid>
                 <MudItem xs="12" sm="6">
                     <MudText Class="mud-width-full py-4 d-flex align-center justify-start">
-                        @Localization.PagesFileCardCreatedBy @_file.Author @Localization.PagesFileCardOn @_file.Created.ToString("d.M.yyyy")
+                        @Localization.PagesFileCardCreatedBy @_file.Owner @Localization.PagesFileCardOn @_file.Created.ToString("d.M.yyyy")
                     </MudText>
                 </MudItem>
                 <MudItem xs="12" sm="6">
                     <MudRating
                         Class="mud-width-full py-4 d-flex align-center justify-end"
                         ReadOnly="true"
-                        SelectedValue="@Convert.ToInt32(_file.Rating)"/>
+                        SelectedValue="@Convert.ToInt32(_file.AverageRating)"/>
                 </MudItem>
             </MudGrid>
             <MudExpansionPanels
@@ -83,7 +83,7 @@
         <MudCardActions Style="padding: 20px 40px 20px 40px;">
             <MudGrid>
                 <MudItem xs="12" sm="4">
-                    <a href="@($"/assets/{_file.Name}.stl")" download="@($"{_file.Name}.stl")" target="_top">
+                    <a href="@($"/assets/{_file.FullName}.stl")" download="@($"{_file.FullName}.stl")" target="_top">
                         <MudButton
                             Class="d-flex align-center justify-center"
                             Style="width: 100%"

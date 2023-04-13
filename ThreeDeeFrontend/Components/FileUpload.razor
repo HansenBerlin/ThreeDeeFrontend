@@ -1,4 +1,6 @@
 @inject IWebHostEnvironment Environment
+@attribute [Authorize]
+
 <MudFileUpload T="IBrowserFile" FilesChanged="UploadFiles" MaximumFileCount="1" >
     <ButtonTemplate>
         <MudButton HtmlTag="label"

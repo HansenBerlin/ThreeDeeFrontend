@@ -15,9 +15,8 @@ public partial class FileCard
     [Parameter]
     public int Id { get; set; }
     
-   [Inject] public IRepository<FileModelComplete, FileModelComplete> FileRepository { get; set; } = default!;
 
-   private FileModel _file = new FileModel();
+    private FileModel _file = new FileModel();
     private bool _avoidRendering;
     private bool _isColorPickerOpen;
     private bool _isInitDone;
@@ -28,7 +27,7 @@ public partial class FileCard
 
     protected override async Task OnParametersSetAsync()
     {
-        _file = await FileRepository.Get(Id);
+        //_file = await FileRepository.Get(Id);
     }
 
     private async Task ProgressHasChangedCallback(double progress)

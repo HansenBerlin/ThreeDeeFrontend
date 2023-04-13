@@ -49,6 +49,8 @@ public class Repository<TResponse, TRequest> : IRepository<TResponse, TRequest>
     {
         try
         {
+            var response2 = await _httpClient.GetAsync($"{_uri}/{id}");
+            var test = await response2.Content.ReadAsStringAsync();
             var response = await _httpClient.GetFromJsonAsync<List<TResponse>>($"{_uri}/{id}", _options);
             return response ?? Enumerable.Empty<TResponse>().ToList();
         }
