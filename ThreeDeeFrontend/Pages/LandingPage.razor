@@ -1,0 +1,49 @@
+@page "/"
+@inherits LayoutComponentBase
+
+<PageTitle>3D Druck einfach gemacht</PageTitle>
+
+<div class="page-background">
+    
+    <div class="left-content">
+        
+        <MudText Typo="Typo.h3" Align="Align.Left" GutterBottom="true" Style="@($"color:{Colors.Grey.Lighten5};font-family: 'JetBrains Mono', Verdana, sans-serif")">3D Druck <br/> einfach <br/> gemacht</MudText>
+        <MudText Typo="Typo.h6" Align="Align.Left" GutterBottom="true" Style="@($"color:{Colors.Grey.Lighten5};font-weight: 400;")">3D-Modelle inklusive geprüfter
+            <br/> Druckkonfigurationen als GCode.
+            <br/> Melde dich an und fange sofort
+            <br/> an zu drucken</MudText>
+        <div style="margin-top: 20px;">
+            <MudButton Disabled="@_processing" OnClick="ProcessSomething" Variant="Variant.Filled" Color="Color.Error" class="button-position">
+                @if (_processing)
+                {
+                    <MudProgressCircular Class="ms-n1" Indeterminate="true"/>
+                    <MudText Class="ms-2">Processing</MudText>
+                }
+                else
+                {
+                    <MudText>MEHR ERFAHREN</MudText>
+                }
+            </MudButton>
+        </div>
+    </div>
+</div>
+@code {
+    private bool _processing = false;
+
+    async Task ProcessSomething()
+    {
+        _processing = true;
+        await Task.Delay(2000);
+        _processing = false;
+    }
+}
+   
+     
+         
+     
+
+
+
+
+
+
