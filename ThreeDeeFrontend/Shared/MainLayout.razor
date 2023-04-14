@@ -28,7 +28,7 @@
         <div style="padding-right: 50px; display: flex; align-items: center; align-content: center;">
             @if (_isAuthenticated)
             {
-                <FileUpload/>
+                <FileUpload UploadStateHasChanged="i => { _uploaded = i; }" />
             }
             <LoginDisplay/>
         </div>
@@ -37,6 +37,10 @@
             Color="Color.Primary" T="bool"
             Label="@(ThemeProviderService.IsDarkMode ? Localization.SharedMainDarkModeDark : Localization.SharedMainDarkModeLight)"/>
     </MudAppBar>
+    @if (_uploaded != 0)
+    {
+        <MudProgressLinear Style="top: 36px; height: 6px;" Color="Color.Secondary" Value="@_uploaded" Class="my-7" />
+    }
     <MudMainContent Style="height: 100vh;">
         @Body
     </MudMainContent>
@@ -56,6 +60,8 @@
     private readonly MudTheme _theme = new();
     private const string SaveSettingsKey = "threedeedarkmodesetting";
     private bool _isAuthenticated;
+    private int _uploaded = 0;
+
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
