@@ -104,3 +104,12 @@ h1, h2, h3{
     padding-left: 15%;
     padding-top: 9%;
 }
+
+
+.auth-info{
+    height: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15%;
+}

@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using System.Text.Json;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using ThreeDeeInfrastructure;
 
@@ -7,6 +8,9 @@ namespace ThreeDeeFrontend.Services;
 
 public class AuthenticationValidator
 {
+    public bool IsAuthenticated { get; private set;}
+    public EventCallback AuthenticationStateHasChanged { get; set; }
+    private string _userId = "";
     private readonly AuthenticationStateProvider _authenticationStateProvider;
     private readonly HttpClient _httpClient;
 
@@ -19,7 +23,13 @@ public class AuthenticationValidator
     public async Task<bool> GetAuthenticationState()
     {
         var user = await GetUser();
-        return user.Identity is not null && user.Identity.IsAuthenticated;
+        bool isAuthenticated = user.Identity is not null && user.Identity.IsAuthenticated;
+        if (IsAuthenticated != isAuthenticated)
+        {
+            IsAuthenticated = isAuthenticated;
+            await AuthenticationStateHasChanged.InvokeAsync();
+        }
+        return IsAuthenticated;
     }
 
     private async Task<ClaimsPrincipal> GetUser()
@@ -32,13 +42,18 @@ public class AuthenticationValidator
 
     public async Task<string> GetUserId()
     {
+        if (_userId != "" && IsAuthenticated)
+        {
+            return _userId;
+        }
         var user = await GetUser();
         string mail = user.FindFirst(c => c.Type == ClaimTypes.Name)?.Value ?? string.Empty;
         const string endpoint = ResourceUrls.UsersEndpoint;
         string url = $"http://localhost:8000{endpoint}/{mail}";
         var options = new JsonSerializerOptions {PropertyNameCaseInsensitive = true};
         var response = await _httpClient.GetFromJsonAsync<UserModel>(url, options);
-        return response?.Id ?? string.Empty;
+        _userId = response?.Id ?? string.Empty;
+        return _userId;
     }
 
     public class UserModel

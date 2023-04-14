@@ -15,35 +15,45 @@
 <MudDialogProvider/>
 <MudSnackbarProvider/>
 <MudLayout>
-    <MudAppBar Elevation="1" Style="@($"background: {MenuBarBackgroundColor()};")">
-        <a href="/">
-            <img src="assets/logo3d.png" style="height: 48px;"/>
-        </a>
-        <div class="d-flex justify-center flex-grow-1 gap-4">
-            <MudButton Variant="Variant.Filled">Files</MudButton>
-            <MudButton Variant="Variant.Filled">Contribute</MudButton>
-            <MudButton Variant="Variant.Filled">Services</MudButton>
-            <MudButton Variant="Variant.Filled">Contact</MudButton>
-        </div>
-        <div style="padding-right: 50px; display: flex; align-items: center; align-content: center;">
-            @if (_isAuthenticated)
-            {
-                <FileUpload UploadStateHasChanged="i => { _uploaded = i; }" />
-            }
-            <LoginDisplay/>
-        </div>
-        <MudSwitch
-            @bind-Checked="@ThemeProviderService.IsDarkMode"
-            Color="Color.Primary" T="bool"
-            Label="@(ThemeProviderService.IsDarkMode ? Localization.SharedMainDarkModeDark : Localization.SharedMainDarkModeLight)"/>
-    </MudAppBar>
-    @if (_uploaded != 0)
+    @if (_isInitDone)
     {
-        <MudProgressLinear Style="top: 36px; height: 6px;" Color="Color.Secondary" Value="@_uploaded" Class="my-7" />
+        <MudAppBar Elevation="1" Style="@($"background: {MenuBarBackgroundColor()};")">
+            <a href="/">
+                @if (ThemeProviderService.IsDarkMode)
+                {
+                    <img src="assets/logo3ddark.png" style="height: 44px;"/>
+                }
+                else
+                {
+                    <img src="assets/logo3dlight.png" style="height: 44px;"/>
+                }
+            </a>
+            <div class="d-flex justify-center flex-grow-1 gap-4">
+                <MudButton Variant="Variant.Filled">Files</MudButton>
+                <MudButton Variant="Variant.Filled">Contribute</MudButton>
+                <MudButton Variant="Variant.Filled">Services</MudButton>
+                <MudButton Variant="Variant.Filled">Contact</MudButton>
+            </div>
+            <div style="padding-right: 50px; display: flex; align-items: center; align-content: center;">
+                @if (AuthenticationValidator.IsAuthenticated)
+                {
+                    <FileUpload UploadStateHasChanged="i => { _uploaded = i; }"/>
+                }
+                <LoginDisplay/>
+            </div>
+            <MudSwitch
+                @bind-Checked="@ThemeProviderService.IsDarkMode"
+                Color="Color.Primary" T="bool"
+                Label="@(ThemeProviderService.IsDarkMode ? Localization.SharedMainDarkModeDark : Localization.SharedMainDarkModeLight)"/>
+        </MudAppBar>
+        @if (_uploaded != 0)
+        {
+            <MudProgressLinear Style="top: 36px; height: 6px;" Color="Color.Secondary" Value="@_uploaded" Class="my-7"/>
+        }
+        <MudMainContent Style="height: 100vh;">
+            @Body
+        </MudMainContent>   
     }
-    <MudMainContent Style="height: 100vh;">
-        @Body
-    </MudMainContent>
 </MudLayout>
 
 @code
@@ -56,18 +66,36 @@
     
     [Inject] 
     public ProtectedLocalStorage BrowserSettings { get; set; }
-    
-    private readonly MudTheme _theme = new();
-    private const string SaveSettingsKey = "threedeedarkmodesetting";
-    private bool _isAuthenticated;
-    private int _uploaded = 0;
 
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    readonly MudTheme _theme = new()
     {
-        if (firstRender)
+        Palette = new Palette()
         {
-            _isAuthenticated = await AuthenticationValidator.GetAuthenticationState();
+            Primary = Colors.Amber.Default,
+            Secondary = Colors.DeepOrange.Darken1,
+            AppbarBackground = Colors.Indigo.Lighten5,
+            Background = Colors.Grey.Lighten5
+        },
+        PaletteDark = new PaletteDark()
+        {
+            Primary = Colors.Amber.Default,
+            Secondary = Colors.DeepPurple.Lighten4,
+            AppbarBackground = Colors.Indigo.Darken1,
+        }
+
+    };
+    private const string SaveSettingsKey = "threedeedarkmodesetting";
+    //private bool _isAuthenticated;
+    private int _uploaded;
+    private bool _isInitDone;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (_isInitDone == false)
+        {
+            AuthenticationValidator.AuthenticationStateHasChanged = EventCallback.Factory
+                            .Create(this, async () => await InvokeAsync(StateHasChanged)); 
             try
             {
                 var result = await BrowserSettings.GetAsync<bool>(SaveSettingsKey);
@@ -84,7 +112,8 @@
             {
                 Console.WriteLine(e);
             }
-            StateHasChanged();
+            _isInitDone = true;
+            await InvokeAsync(StateHasChanged);
         }
     }
 
@@ -104,10 +133,10 @@
     private string MenuBarBackgroundColor()
     {
         bool isDarkMode = ThemeProviderService.IsDarkMode;
-        return _isAuthenticated switch
+        return AuthenticationValidator.IsAuthenticated switch
         {
-            true when isDarkMode => "#3F51B5",
-            true when isDarkMode == false => "#C5CAE9",
+            true when isDarkMode => Colors.Indigo.Darken1,
+            true when isDarkMode == false => Colors.Indigo.Lighten5,
             _ => "transparent"
             };
     }

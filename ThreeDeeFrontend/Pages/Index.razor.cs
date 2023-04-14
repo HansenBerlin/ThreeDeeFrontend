@@ -18,14 +18,18 @@ public partial class Index
     private string _userId = "";
     private bool _isAuthenticated;
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnAfterRenderAsync(bool isFirstRender)
     {
-        _isAuthenticated = await AuthenticationValidator.GetAuthenticationState();
-        if (_isAuthenticated)
+        if (isFirstRender)
         {
-            _userId = await AuthenticationValidator.GetUserId();
-        }
+            _isAuthenticated = await AuthenticationValidator.GetAuthenticationState();
+            if (_isAuthenticated)
+            {
+                _userId = await AuthenticationValidator.GetUserId();
+            }
 
-        _isInitDone = true;
+            _isInitDone = true;
+            await InvokeAsync(StateHasChanged);
+        }
     }
 }
