@@ -90,9 +90,9 @@
     private bool _isInitDone;
 
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnAfterRenderAsync(bool isFirstRender)
     {
-        if (_isInitDone == false)
+        if (isFirstRender)
         {
             AuthenticationValidator.AuthenticationStateHasChanged = EventCallback.Factory
                             .Create(this, async () => await InvokeAsync(StateHasChanged)); 

@@ -49,10 +49,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="unsafe_uploads\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\ThreeDeeApplication\ThreeDeeApplication.csproj" />
       <ProjectReference Include="..\ThreeDeeInfrastructure\ThreeDeeInfrastructure.csproj" />
     </ItemGroup>
