@@ -1,6 +1,7 @@
 
 
 using System.Diagnostics;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
 using ThreeDeeInfrastructure.ResponseModels;
@@ -18,9 +19,6 @@ public class Repository<TResponse, TRequest> : IRepository<TResponse, TRequest>
     private readonly HttpClient _httpClient;
     private readonly JsonSerializerOptions _options;
     private readonly string _uri;
-
- 
-
 
     public Repository(HttpClient httpClient, IEndpointService endpointService)
     {
@@ -49,8 +47,6 @@ public class Repository<TResponse, TRequest> : IRepository<TResponse, TRequest>
     {
         try
         {
-            var response2 = await _httpClient.GetAsync($"{_uri}/{id}");
-            var test = await response2.Content.ReadAsStringAsync();
             var response = await _httpClient.GetFromJsonAsync<List<TResponse>>($"{_uri}/{id}", _options);
             return response ?? Enumerable.Empty<TResponse>().ToList();
         }
@@ -63,7 +59,7 @@ public class Repository<TResponse, TRequest> : IRepository<TResponse, TRequest>
 
  
 
-    public async Task<TResponse> Get(int id)
+    public async Task<TResponse> Get(string id)
     {
         try
         {
@@ -87,7 +83,10 @@ public class Repository<TResponse, TRequest> : IRepository<TResponse, TRequest>
     {
         try
         {
-            var response = await _httpClient.PostAsJsonAsync(_uri, requestModel);
+            _httpClient.DefaultRequestHeaders
+                .Accept
+                .Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var response = await _httpClient.PostAsJsonAsync(_uri, requestModel, _options);
             var responseString = await response.Content.ReadAsStringAsync();
             return JsonSerializer.Deserialize<TResponse>(responseString) ?? new TResponse();
         }
@@ -103,7 +102,7 @@ public class Repository<TResponse, TRequest> : IRepository<TResponse, TRequest>
 
  
 
-    public async Task<TResponse> Update(TRequest requestModel, int id)
+    public async Task<TResponse> Update(TRequest requestModel, string id)
     {
         try
         {
@@ -123,7 +122,7 @@ public class Repository<TResponse, TRequest> : IRepository<TResponse, TRequest>
 
  
 
-    public async Task<bool> Delete(int id)
+    public async Task<bool> Delete(string id)
     {
         try
         {

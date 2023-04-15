@@ -1,4 +1,4 @@
-@page "/model/{Id:int}"
+@page "/model/{Id}/{UserId}"
 @using ThreeDeeFrontend.Components
 
 <MudContainer MaxWidth="MaxWidth.Medium">
@@ -35,15 +35,14 @@
             @if (_avoidRendering)
             {
                 <MudCardMedia
-                    Image="@($"assets/{_file.FullName}.png")"
+                    Image="@($"previewfiles/{_file.FullName}.png")"
                     Style="height: 50vh; border-style: solid; border-width: 1px; border-radius: 4px; border-color: #f0f8ff36;"/>
             }
-            else
+            else if (_isInitDone)
             {
                 <ModelRenderer
                     @ref="_modelRendererRef"
                     Name="@_file.FullName"
-                    Id="@_file.Id"
                     ProgressHasChanged="ProgressHasChangedCallback"
                     ColorValue="@_color.Value[..7]"/>
                 if (_progress < 100)
@@ -55,6 +54,10 @@
                         Value="@_progress" 
                         Class="my-7" />
                 }
+            }
+            else
+            {
+                <MudProgressCircular Color="Color.Primary" Size="Size.Large" Indeterminate="true" />
             }
             <MudGrid>
                 <MudItem xs="12" sm="6">

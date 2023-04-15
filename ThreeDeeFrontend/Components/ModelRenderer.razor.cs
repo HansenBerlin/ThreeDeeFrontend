@@ -13,8 +13,8 @@ public partial class ModelRenderer
     [Parameter]
     public string Name { get; set; }
     
-    [Parameter]
-    public string Id { get; set; }
+    //[Parameter]
+    public int Id { get; set; }
     
     [Parameter]
     public EventCallback<double> ProgressHasChanged { get; set; }
@@ -33,8 +33,9 @@ public partial class ModelRenderer
     {
         if (firstRender)
         {
+            Id = new Random().Next(0, 1000);
             objRef = DotNetObjectReference.Create(this);
-            await JsInteropService.AddFile($"../assets/{Name}.stl", ColorValue, Id, objRef);
+            await JsInteropService.AddFile($"../stlfiles/{Name}.stl", ColorValue, Id, objRef);
         }
     }
 

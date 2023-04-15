@@ -15,10 +15,6 @@
       <PackageReference Include="Microsoft.JSInterop" Version="7.0.2" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="RequestModels\" />
-    </ItemGroup>
-
 
     
 

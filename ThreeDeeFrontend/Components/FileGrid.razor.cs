@@ -29,6 +29,6 @@ public partial class FileGrid
     
     private void OnButtonClicked(string fileId)
     {
-        NavigationManager.NavigateTo($"/model/{fileId}");
+        NavigationManager.NavigateTo($"/model/{fileId}/{UserId}");
     }
 }

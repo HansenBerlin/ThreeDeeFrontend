@@ -4,6 +4,7 @@ using ThreeDeeApplication.Enums;
 using ThreeDeeApplication.Models;
 using ThreeDeeFrontend.Services;
 using ThreeDeeInfrastructure.Repositories;
+using ThreeDeeInfrastructure.RequestModels;
 using ThreeDeeInfrastructure.ResponseModels;
 
 
@@ -17,25 +18,26 @@ public class FilesGridViewModel : IFilesGridViewModel
     public Filetype FileAccessStatus { get; private set; }
     
     private List<FileModel> _files = new();
-    private readonly IRepository<FileModel, FileModel> _fileRepository;
+    private readonly IRepository<FileModel, FileRequestModel> _fileRepository;
     private string _userId = "";
     
-    public FilesGridViewModel(IRepository<FileModel, FileModel> fileRepository)
+    public FilesGridViewModel(IRepository<FileModel, FileRequestModel> fileRepository)
     {
         _fileRepository = fileRepository;
     }
 
-    
-    
     public async Task UpdateFilteredFiles(Filetype newStatus)
     {
+        FileAccessStatus = newStatus;
         if (newStatus == Filetype.Public)
         {
             FilteredFiles = new List<FileModel>(_files);
         }
         else
         {
-            FilteredFiles = new List<FileModel>(_files);
+            FilteredFiles = new List<FileModel>(_files)
+                .Where(x => x.Permission == "owner")
+                .ToList();
         }
         
         await FilesChanged.InvokeAsync();
@@ -62,7 +64,7 @@ public class FilesGridViewModel : IFilesGridViewModel
         {
             FilteredFiles = new List<FileModel>(_files)
                 .Where(x => x.FullName
-                    .Contains(searchValue, StringComparison.InvariantCultureIgnoreCase) && x.Permission == "owner")
+                    .Contains(searchValue, StringComparison.InvariantCultureIgnoreCase))
                 .ToList();
             filtered = FilteredFiles.Select(x => x.FullName);
         }
