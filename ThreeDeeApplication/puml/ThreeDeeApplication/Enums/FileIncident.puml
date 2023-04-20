@@ -1,0 +1,7 @@
+@startuml
+enum FileIncident {
+    Positive,
+    Neutral,
+    Negative,
+}
+@enduml

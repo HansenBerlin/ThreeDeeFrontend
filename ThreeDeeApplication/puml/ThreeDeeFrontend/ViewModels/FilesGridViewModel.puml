@@ -1,0 +1,12 @@
+@startuml
+class FilesGridViewModel {
+    + SelectedSearchValue : string <<get>> <<set>> = ""
+    + FilesGridViewModel(fileRepository:IRepository<FileModel, FileRequestModel>)
+    + <<async>> UpdateFilteredFiles(newStatus:Filetype) : Task
+    + <<async>> Init(userId:string) : Task
+    + <<async>> UpdateFilteredFiles(searchValue:string) : Task<IEnumerable<string>>
+}
+
+IFilesGridViewModel <|-- FilesGridViewModel
+FilesGridViewModel --> "FileAccessStatus" Filetype
+@enduml

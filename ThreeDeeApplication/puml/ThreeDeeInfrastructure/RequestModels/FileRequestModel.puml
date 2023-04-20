@@ -1,0 +1,7 @@
+@startuml
+class FileRequestModel {
+    + fullname : string <<get>> <<set>>
+    + owner_user_id : string <<get>> <<set>>
+    + sizebytes : long <<get>> <<set>>
+}
+@enduml

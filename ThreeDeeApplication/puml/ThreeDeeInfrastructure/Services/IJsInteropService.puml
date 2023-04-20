@@ -1,0 +1,6 @@
+@startuml
+interface "IJsInteropService`1"<T> {
+    AddFile(path:string, color:string, id:int, dotnetObjRef:DotNetObjectReference<T>) : Task
+    ChangeColor(newColor:string, id:int) : Task
+}
+@enduml

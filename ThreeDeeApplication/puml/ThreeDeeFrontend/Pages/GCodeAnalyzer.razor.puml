@@ -1,0 +1,6 @@
+@startuml
+class GCodeAnalyzer <<partial>> {
+    + File : string <<get>> <<set>> = "Banshee"
+}
+GCodeAnalyzer --> "JsRuntime" IJSRuntime
+@enduml

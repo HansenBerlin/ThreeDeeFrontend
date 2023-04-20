@@ -1,0 +1,6 @@
+@startuml
+class EndpointService {
+    + GetMappedUrl(responseModel:Type) : string
+}
+IEndpointService <|-- EndpointService
+@enduml

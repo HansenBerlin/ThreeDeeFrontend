@@ -1,0 +1,15 @@
+@startuml
+class ModelRenderer <<partial>> {
+    + ColorValue : string <<get>> <<set>>
+    + Name : string <<get>> <<set>>
+    + Id : int <<get>> <<set>>
+    + <<async>> ChangeColor(newColor:string) : Task
+    + <<async>> ProgressChangedJsCallback(progress:double) : Task
+}
+class "EventCallback<double>"<T> {
+}
+class "IJsInteropService`1"<T> {
+}
+ModelRenderer --> "ProgressHasChanged<double>" "EventCallback<double>"
+ModelRenderer --> "JsInteropService<ModelRenderer>" "IJsInteropService`1"
+@enduml
