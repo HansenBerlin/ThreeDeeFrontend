@@ -10,8 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5a97b10-25f6-4d14-a86b-aa30fe4fdd62" name="Changes" comment="- rm spaces">
-      <change beforePath="$PROJECT_DIR$/ThreeDeeApplication/Enums/Filetype.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeApplication/Enums/PrintMaterial.cs" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Components/CarouselItem.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Components/CarouselItem.razor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/Advantages.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ThreeDeeFrontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThreeDeeFrontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Shared/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Shared/MainLayout.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/ThreeDeeFrontend.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/ThreeDeeFrontend.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/wwwroot/css/site.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,17 +34,17 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="release" />
+        <entry key="$PROJECT_DIR$" value="refactor/design" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/560bab9a65bd40b7b659f83fa6464965885000/40/701d10ae/Colors.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/560bab9a65bd40b7b659f83fa6464965885000/9b/8a8cf86b/MudCardContent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/560bab9a65bd40b7b659f83fa6464965885000/d7/8c19235b/Color.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1aa8f79e1b14eb5b2ff38a1b982b2e688673c7d6cab7979747ea238118f41/RenderTreeBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b37bdcda3df384671c8eed0dd528e74eff6e04eeb7b1e81f219e5e066318/ComponentBase.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeFrontend/Components/FileUpload.razor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeFrontend/Pages/LandingPage.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -57,7 +62,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "refactor/design",
+    "git-widget-placeholder": "feature/marketing-pag",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Hannes/Desktop",
     "list.type.of.created.stylesheet": "CSS",
