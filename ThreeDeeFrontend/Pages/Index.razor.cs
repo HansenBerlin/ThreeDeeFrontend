@@ -13,6 +13,9 @@ public partial class Index
 {
     [Inject]
     public AuthenticationValidator AuthenticationValidator { get; set; }
+    
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
 
     private bool _isInitDone;
     private string _userId = "";
@@ -27,9 +30,20 @@ public partial class Index
             {
                 _userId = await AuthenticationValidator.GetUserId();
             }
+            else
+            {
+                NavigationManager.NavigateTo("/landing-page");
+            }
 
-            _isInitDone = true;
-            await InvokeAsync(StateHasChanged);
+            if (_userId != "")
+            {
+                _isInitDone = true;
+                await InvokeAsync(StateHasChanged);
+            }
+            else
+            {
+                // add user to db
+            }
         }
     }
 }

@@ -25,7 +25,6 @@ builder.Services.AddMudServices();
 builder.Services.AddSingleton<IEndpointService, EndpointService>();
 builder.Services.AddSingleton<IRepository<FileModel, FileRequestModel>, Repository<FileModel, FileRequestModel>>();
 builder.Services.AddSingleton<IRepository<GCodeSettingsModel, GCodeSettingsModel>, Repository<GCodeSettingsModel, GCodeSettingsModel>>();
-builder.Services.AddScoped<TopMenuViewModel>();
 builder.Services.AddScoped<IJsInteropService<ModelRenderer>, JsInteropService<ModelRenderer>>();
 builder.Services.AddScoped<IThemeProviderService, ThemeProviderService>();
 builder.Services.AddScoped<IGCodeSettingsRepository, GCodeSettingsRepository>();
