@@ -9,13 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5a97b10-25f6-4d14-a86b-aa30fe4fdd62" name="Changes" comment="- rm spaces">
-      <change afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Components/CarouselItem.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Components/CarouselItem.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/Advantages.razor" afterDir="false" />
+    <list default="true" id="f5a97b10-25f6-4d14-a86b-aa30fe4fdd62" name="Changes" comment="- marketing page design improvements">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ThreeDeeFrontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThreeDeeFrontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Components/FileGrid.razor" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Components/FileGrid.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/Advantages.razor" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/Advantages.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/Index.razor" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/Index.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/Index.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/Index.razor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/LandingPage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/LandingPage.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Shared/LoginDisplay.razor" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Shared/LoginDisplay.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Shared/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Shared/MainLayout.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/ThreeDeeFrontend.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/ThreeDeeFrontend.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/wwwroot/css/site.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +28,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -45,6 +47,14 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/560bab9a65bd40b7b659f83fa6464965885000/d7/8c19235b/Color.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1aa8f79e1b14eb5b2ff38a1b982b2e688673c7d6cab7979747ea238118f41/RenderTreeBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b37bdcda3df384671c8eed0dd528e74eff6e04eeb7b1e81f219e5e066318/ComponentBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ea3213f3e661b7f93d6b3589bec41782ba58782ad27459d82659c6cb8ae1230/AuthorizeRouteView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeFrontend/App.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeFrontend/Areas/Identity/Pages/Shared/_LoginPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeFrontend/Pages/Advantages.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeFrontend/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeFrontend/Services/AuthenticationValidator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeFrontend/Shared/MainLayout.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeInfrastructure/Services/EndpointService.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -56,35 +66,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/marketing-pag",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Hannes/Desktop",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.plantuml.idea.settings.PlantUmlSettingsPage",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/marketing-pag&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Hannes/Desktop&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.plantuml.idea.settings.PlantUmlSettingsPage&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "Markdown"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Markdown&quot;
     ],
-    "rider.external.source.directories": [
-      "C:\\Users\\Hannes\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Hannes\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\Hannes\\AppData\\Local\\Symbols\\src"
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Hannes\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Hannes\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Hannes\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.ThreeDeeFrontend: MinimalFrontend">
     <configuration name="ThreeDeeApplication" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -205,6 +215,7 @@
       <workItem from="1681905007113" duration="1872000" />
       <workItem from="1681979359901" duration="439000" />
       <workItem from="1681979830950" duration="5530000" />
+      <workItem from="1682167287162" duration="9392000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1675880923088</created>
@@ -465,7 +476,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681987991249</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="- added marketing page&#10;- added icons">
+      <created>1682110032345</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1682110032345</updated>
+    </task>
+    <task id="LOCAL-00039" summary="- marketing page design improvements">
+      <created>1682172337534</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1682172337534</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -492,8 +517,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="- update readme" />
-    <MESSAGE value="- catch exception when accessing protected browser storage (tbd: explicit EH)" />
     <MESSAGE value="- add file grid view model&#10;- extract search and filter functions from components&#10;- add event based structure to file grid component" />
     <MESSAGE value="- implement asp.net authentication&#10;- add google oauth authentication" />
     <MESSAGE value="- added poc (integration of gcode analyzer)&#10;- kudos https://github.com/syue87/GCodeAnalyser/tree/master" />
@@ -517,7 +540,9 @@
     <MESSAGE value="- add file uploads&#10;- fix filtering" />
     <MESSAGE value="add upload" />
     <MESSAGE value="- rm spaces" />
-    <option name="LAST_COMMIT_MESSAGE" value="- rm spaces" />
+    <MESSAGE value="- added marketing page&#10;- added icons" />
+    <MESSAGE value="- marketing page design improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="- marketing page design improvements" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -587,6 +612,48 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ThreeDeeFrontend/Shared/MainLayout.razor</url>
+          <line>159</line>
+          <properties documentPath="C:\Users\Hannes\source\repos\HWR\WebEntwicklung\docker-demo-devenv\frontend\devenv-frontend\ThreeDeeFrontend\Shared\MainLayout.razor" initialLine="146" isMultiMethodBreakpoint="true">
+            <option name="multiMethodBreakpoint" value="true" />
+            <startOffsets>
+              <option value="-1" />
+            </startOffsets>
+            <endOffsets>
+              <option value="-1" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ThreeDeeFrontend/Shared/MainLayout.razor</url>
+          <line>161</line>
+          <properties documentPath="C:\Users\Hannes\source\repos\HWR\WebEntwicklung\docker-demo-devenv\frontend\devenv-frontend\ThreeDeeFrontend\Shared\MainLayout.razor" initialLine="149" isMultiMethodBreakpoint="true">
+            <option name="multiMethodBreakpoint" value="true" />
+            <startOffsets>
+              <option value="-1" />
+            </startOffsets>
+            <endOffsets>
+              <option value="-1" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ThreeDeeFrontend/Shared/MainLayout.razor</url>
+          <line>91</line>
+          <properties documentPath="C:\Users\Hannes\source\repos\HWR\WebEntwicklung\docker-demo-devenv\frontend\devenv-frontend\ThreeDeeFrontend\Shared\MainLayout.razor" initialLine="93" isMultiMethodBreakpoint="true">
+            <option name="multiMethodBreakpoint" value="true" />
+            <startOffsets>
+              <option value="-1" />
+            </startOffsets>
+            <endOffsets>
+              <option value="-1" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -2,25 +2,29 @@
 @using ThreeDeeFrontend.Components
 <PageTitle>3D Druck einfach gemacht</PageTitle>
 
-@if (_isInitDone)
+@if (_isInitDone && _isAuthenticated)
 {
-    switch (_isAuthenticated)
-    {
-        case true when _userId != "":
-            <FileGrid UserId="@_userId"/>
-            break;
-        case true when _userId == "":
-            <p>Something went wrong fetching your user id from the server. Please try again or contact support.</p>
-            break;
-        default:
-            <LandingPage/>
-            break;
-    }
+    <FileGrid UserId="@_userId"/>
+}
+else if (_isInitDone && _isAuthenticated == false)
+{
+    <MudText>
+        Something went wrong fetching your user id from the server. Please try again or contact
+        <MudLink
+            Href="/support">
+            support
+        </MudLink>
+    </MudText>
 }
 else
 {
     <div class="auth-info">
-        <MudProgressCircular Color="Color.Primary" Size="Size.Large" Indeterminate="true" />
-        <MudText Typo="Typo.h3">Authenticating user</MudText>
+        <MudProgressCircular 
+            Color="Color.Primary" Size="Size.Large" 
+            Indeterminate="true" />
+        <MudText
+            Typo="Typo.h3">
+            Authenticating user
+        </MudText>
     </div>
 }
