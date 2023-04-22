@@ -6,7 +6,7 @@ namespace ThreeDeeInfrastructure.Services;
 public class EndpointService : IEndpointService
 {
     private const string FallbackUrl = "localhost/";
-    private readonly string _serviceUrl = "http://localhost:8000"; //TODO aus settings lesen
+    private readonly string _serviceUrl = "http://194.233.162.63:8000"; //TODO aus settings lesen
 /*
     public EndpointService(IConfigurationRoot configurationRoot)
     {

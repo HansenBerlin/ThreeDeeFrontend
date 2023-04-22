@@ -14,6 +14,9 @@
     Theme="_theme"/>
 <MudDialogProvider/>
 <MudSnackbarProvider/>
+<MudScrollToTop>
+    <MudFab Color="Color.Tertiary" Icon="@Icons.Material.Filled.ArrowCircleUp" />
+</MudScrollToTop>
 <MudLayout>
     @if (_isInitDone)
     {
@@ -21,18 +24,21 @@
             <a href="/">
                 @if (ThemeProviderService.IsDarkMode)
                 {
-                    <img src="assets/logo3ddark.png" style="height: 44px;"/>
+                    <img src="assets/logo3ddark.png" style="height: 40px;"/>
                 }
                 else
                 {
-                    <img src="assets/logo3dlight.png" style="height: 44px;"/>
+                    <img src="assets/logo3dlight.png" style="height: 40px;"/>
                 }
             </a>
             <div class="d-flex justify-center flex-grow-1 gap-4">
-                <MudButton Variant="Variant.Filled">Files</MudButton>
-                <MudButton Variant="Variant.Filled">Contribute</MudButton>
-                <MudButton Variant="Variant.Filled">Services</MudButton>
-                <MudButton Variant="Variant.Filled">Contact</MudButton>
+                @if (AuthenticationValidator.IsAuthenticated)
+                {
+                    <MudButton Href="/files" Variant="Variant.Filled">Dateien</MudButton>
+                }
+                <MudButton Href="/advantages" Variant="Variant.Filled">Warum CreationStation</MudButton>
+                <MudButton Variant="Variant.Filled">Kontakt & Support</MudButton>
+                <MudButton Variant="Variant.Filled">Impressum</MudButton>
             </div>
             <div style="padding-right: 50px; display: flex; align-items: center; align-content: center;">
                 @if (AuthenticationValidator.IsAuthenticated)
@@ -56,6 +62,8 @@
     }
 </MudLayout>
 
+
+
 @code
 {
     [Inject]
@@ -66,6 +74,9 @@
     
     [Inject] 
     public ProtectedLocalStorage BrowserSettings { get; set; }
+    
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
 
     readonly MudTheme _theme = new()
     {
@@ -88,7 +99,6 @@
 
     };
     private const string SaveSettingsKey = "threedeedarkmodesetting";
-    //private bool _isAuthenticated;
     private int _uploaded;
     private bool _isInitDone;
 
@@ -136,12 +146,12 @@
     private string MenuBarBackgroundColor()
     {
         bool isDarkMode = ThemeProviderService.IsDarkMode;
-        return AuthenticationValidator.IsAuthenticated switch
+        bool isLandingPage = NavigationManager.Uri == NavigationManager.BaseUri;
+        if (isLandingPage)
         {
-            true when isDarkMode => Colors.Indigo.Darken1,
-            true when isDarkMode == false => Colors.Indigo.Lighten5,
-            _ => "transparent"
-            };
+            return "transparent";
+        }
+        return isDarkMode ? Colors.Indigo.Darken1 : Colors.Indigo.Lighten5;
     }
 }
 

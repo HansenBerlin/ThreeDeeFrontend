@@ -49,7 +49,8 @@ public class AuthenticationValidator
         var user = await GetUser();
         string mail = user.FindFirst(c => c.Type == ClaimTypes.Name)?.Value ?? string.Empty;
         const string endpoint = ResourceUrls.UsersEndpoint;
-        string url = $"http://localhost:8000{endpoint}/{mail}";
+        string url = $"http://" +
+                     $"194.233.162.63:8000{endpoint}/{mail}";
         var options = new JsonSerializerOptions {PropertyNameCaseInsensitive = true};
         var response = await _httpClient.GetFromJsonAsync<UserModel>(url, options);
         _userId = response?.Id ?? string.Empty;
