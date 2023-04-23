@@ -1,8 +1,10 @@
 using System.Security.Claims;
-using System.Text.Json;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
-using ThreeDeeInfrastructure;
+using Newtonsoft.Json;
+using ThreeDeeInfrastructure.Repositories;
+using ThreeDeeInfrastructure.RequestModels;
+using ThreeDeeInfrastructure.ResponseModels;
 
 namespace ThreeDeeFrontend.Services;
 
@@ -12,12 +14,14 @@ public class AuthenticationValidator
     public EventCallback AuthenticationStateHasChanged { get; set; }
     private string _userId = "";
     private readonly AuthenticationStateProvider _authenticationStateProvider;
-    private readonly HttpClient _httpClient;
+    private readonly IRepository<UserResponseModel, UserRequestModel> _repository;
 
-    public AuthenticationValidator(AuthenticationStateProvider authenticationStateProvider, HttpClient httpClient)
+    
+    public AuthenticationValidator(AuthenticationStateProvider authenticationStateProvider, 
+        IRepository<UserResponseModel, UserRequestModel> repository)
     {
         _authenticationStateProvider = authenticationStateProvider;
-        _httpClient = httpClient;
+        _repository = repository;
     }
 
     public async Task<bool> GetAuthenticationState()
@@ -48,17 +52,22 @@ public class AuthenticationValidator
         }
         var user = await GetUser();
         string mail = user.FindFirst(c => c.Type == ClaimTypes.Name)?.Value ?? string.Empty;
-        const string endpoint = ResourceUrls.UsersEndpoint;
-        string url = $"http://" +
-                     $"194.233.162.63:8000{endpoint}/{mail}";
-        var options = new JsonSerializerOptions {PropertyNameCaseInsensitive = true};
-        var response = await _httpClient.GetFromJsonAsync<UserModel>(url, options);
-        _userId = response?.Id ?? string.Empty;
+        var response = await _repository.Get(mail);
+        if (response.IsResponseSuccess == false)
+        {
+            var payload = new UserRequestModel
+            {
+                UserName = "User " + new Random().Next(100, 1000),
+                Mail = mail
+            };
+            response = await _repository.Insert(payload);
+
+        }
+        _userId = response.IsResponseSuccess ? response.Id : string.Empty;
         return _userId;
     }
 
-    public class UserModel
-    {
-        public string Id { get; set; }
-    }
+    
+    
+    
 }

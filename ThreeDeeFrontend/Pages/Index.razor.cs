@@ -1,11 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
-using ThreeDeeApplication.Enums;
-using ThreeDeeApplication.Models;
+﻿using Microsoft.AspNetCore.Components;
 using ThreeDeeFrontend.Services;
-using ThreeDeeFrontend.ViewModels;
-using ThreeDeeInfrastructure.Repositories;
 
 namespace ThreeDeeFrontend.Pages;
 

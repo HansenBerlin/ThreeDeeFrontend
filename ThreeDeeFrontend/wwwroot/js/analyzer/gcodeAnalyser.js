@@ -121,7 +121,7 @@ function addResultTableEntries(resultFormat) {
                 cell.style.fontSize = "16px";
                 cell.style.borderTopLeftRadius = "4px";
                 cell.style.borderTopRightRadius = "4px";
-                cell.style.backgroundColor = "#776be7";
+                cell.style.backgroundColor = "#ffc107";
             } else {
                 cellLeft = row.appendChild(document.createElement('th'));
                 cellLeft.innerHTML = resultFormat[key].discription;

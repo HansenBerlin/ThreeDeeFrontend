@@ -90,9 +90,9 @@ public partial class FileUpload
             string fileName = file.Name[..^4];
             var fileRequest = new FileRequestModel()
             {
-                fullname = fileName,
-                owner_user_id = userId,
-                sizebytes = file.Size
+                Fullname = fileName,
+                OwnerUserId = userId,
+                Sizebytes = file.Size
             };
             var response = await FileRepository.Insert(fileRequest);
             if (response.IsResponseSuccess)

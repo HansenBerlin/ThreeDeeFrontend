@@ -107,10 +107,15 @@ h1 {
     height: calc(100% + 64px);
     margin-top: -64px;
 }
+
 .left-content {
     padding-left: 15%;
     padding-top: 13%;
     width: 524px;
+}
+
+.mud-expand-panel-content{
+    padding: 0!important;
 }
 
 
@@ -129,4 +134,5 @@ footer{
     background: #35363c;
     padding: 20px;
     align-items: center;
+    margin-top: 100px;
 }

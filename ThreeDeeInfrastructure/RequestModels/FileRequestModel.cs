@@ -4,9 +4,9 @@ namespace ThreeDeeInfrastructure.RequestModels;
 
 public class FileRequestModel
 {
-    //[JsonPropertyName("owner_user_id")]
+    public string Fullname { get; set; }
     
-    public string fullname { get; set; }
-    public string owner_user_id { get; set; }
-    public long sizebytes { get; set; }
+    [JsonPropertyName("ownerUserId")]
+    public string OwnerUserId { get; set; }
+    public long Sizebytes { get; set; }
 }

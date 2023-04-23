@@ -1,5 +1,3 @@
-using System;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using MudBlazor.Utilities;
@@ -7,7 +5,6 @@ using ThreeDeeApplication.Models;
 using ThreeDeeFrontend.Components;
 using ThreeDeeInfrastructure.Repositories;
 using ThreeDeeInfrastructure.RequestModels;
-using ThreeDeeInfrastructure.ResponseModels;
 
 namespace ThreeDeeFrontend.Pages;
 
@@ -18,6 +15,7 @@ public partial class FileCard
     
     [Parameter]
     public string UserId { get; set; }
+    
     private FileModel _file = new();
     private bool _avoidRendering;
     private bool _isColorPickerOpen;
@@ -29,16 +27,25 @@ public partial class FileCard
     [Inject]
     public IRepository<FileModel, FileRequestModel> FileRepository { get; set; }
 
-    protected override async Task OnParametersSetAsync()
+    protected override async Task OnInitializedAsync()
     {
-        _file = await FileRepository.Get($"{Id}/{UserId}");
-        _isInitDone = true;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool isFirstRender)
+    {
+        if (isFirstRender)
+        {
+            _file = await FileRepository.Get($"{Id}/{UserId}");
+            _isInitDone = true;
+        }
+        Console.WriteLine(UserId);
+        Console.WriteLine(_file.Id);
     }
 
     private async Task ProgressHasChangedCallback(double progress)
     {
         _progress = progress;
-        await InvokeAsync(StateHasChanged);
+        StateHasChanged();
     }
 
     private async Task UpdateColor(MudColor color)

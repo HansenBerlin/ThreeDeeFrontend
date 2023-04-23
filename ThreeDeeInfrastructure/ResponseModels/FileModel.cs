@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using ThreeDeeApplication.Enums;
 using ThreeDeeInfrastructure.ResponseModels;
 
 namespace ThreeDeeApplication.Models;

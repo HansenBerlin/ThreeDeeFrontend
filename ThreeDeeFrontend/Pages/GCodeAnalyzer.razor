@@ -2,32 +2,43 @@
 
 
 <MudContainer id="bodyDiv" MaxWidth="MaxWidth.Large">
-    <div>
-        <div class="panel-heading" align="right">
-            <div>
-                <span id="layerNumber"></span>
-            </div>
-        </div>
-        <div style="display: flex; height: 100%;">
-            <div style="width: 100px;">
-                <table id="speedLable">
-                </table>
-            </div>
-            <div id="renderCanvasContainer" style="width: 100%; max-width: 1000px; margin-left: 30px;">
-                <canvas id="renderCanvas"></canvas>
-            </div>
-            <div id="canvasVerticalSliderContainer" style="width: 150px;">
-                <div id="canvasVerticalSlider">
-                    <input style="rotate: 270deg; width: 300px; margin: 200px -200px 0 -100px" type="range" id="myRange">
+    <div class="header-div">
+        <h1 style="margin: 0;">Konfiganalyzer für @File</h1>
+        <a href="@($"/gcodefiles/{File}.txt")" download="@($"{File}.gcode")">
+            <MudButton
+                Size="@Size.Medium"
+                Variant="Variant.Filled"
+                StartIcon="@Icons.Material.Filled.Download"
+                Color="@Color.Primary">
+                @Localization.PagesGCodeAnalyzerDownload
+            </MudButton>
+        </a>
+    </div>
+
+    <MudCard>
+        <MudCardContent Style="padding: 32px;">
+            
+            <div style="display: flex; height: 100%;">
+                <div style="width: 100px;">
+                    <table id="speedLable" class="speed-table">
+                    </table>
+                    <div style="margin-top: 16px; font-size: 18px;">
+                        <span id="layerNumber"></span>
+                    </div>
+                </div>
+                <div id="renderCanvasContainer" style="width: 100%; max-width: 1000px; margin-left: 30px; border-style: solid; border-width: 1px; border-color: #27272f; border-radius: 4px;">
+                    <canvas id="renderCanvas"></canvas>
+                </div>
+                <div id="canvasVerticalSliderContainer" style="width: 84px;">
+                    <div id="canvasVerticalSlider">
+                        <input style="rotate: 270deg; width: 300px; margin: 200px -200px 0 -100px" type="range" id="myRange">
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <a href="@($"/gcodefiles/{File}.txt")" download="@($"{File}.gcode")" >
-        <MudButton Size="@Size.Medium" Variant="Variant.Filled" FullWidth="true" StartIcon="@Icons.Material.Filled.Download" Color="@Color.Primary">@Localization.PagesGCodeAnalyzerDownload</MudButton>
-    </a>
-    <div class="row" style="margin-bottom: 100px;" align="center">
-        <table class="statstable" style="max-width: 1000px; width: 100%;">
+        </MudCardContent>
+    </MudCard>
+    <div class="row" style="margin-bottom: 100px; margin-top: 40px; width: 100%;" align="center">
+        <table class="statstable" style="width: 100%;">
             <tbody class="statstable" id="gcodeStats">
             </tbody>
         </table>

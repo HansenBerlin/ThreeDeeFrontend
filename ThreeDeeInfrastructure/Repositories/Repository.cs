@@ -27,8 +27,6 @@ public class Repository<TResponse, TRequest> : IRepository<TResponse, TRequest>
         _options = new JsonSerializerOptions {PropertyNameCaseInsensitive = true};
     }
 
- 
-
     public async Task<IEnumerable<TResponse>> GetAll()
     {
         try
@@ -76,9 +74,6 @@ public class Repository<TResponse, TRequest> : IRepository<TResponse, TRequest>
         }
     }
 
-    
- 
-
     public async Task<TResponse> Insert(TRequest requestModel)
     {
         try
@@ -87,8 +82,8 @@ public class Repository<TResponse, TRequest> : IRepository<TResponse, TRequest>
                 .Accept
                 .Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var response = await _httpClient.PostAsJsonAsync(_uri, requestModel, _options);
-            var responseString = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<TResponse>(responseString) ?? new TResponse();
+            var responseString = await response.Content.ReadAsStreamAsync();
+            return await JsonSerializer.DeserializeAsync<TResponse>(responseString, _options) ?? new TResponse();
         }
         catch (Exception e) when (e is HttpRequestException or JsonException)
         {
@@ -99,16 +94,14 @@ public class Repository<TResponse, TRequest> : IRepository<TResponse, TRequest>
             };
         }
     }
-
- 
 
     public async Task<TResponse> Update(TRequest requestModel, string id)
     {
         try
         {
             var response = await _httpClient.PutAsJsonAsync($"{_uri}/{id}", requestModel);
-            var responseString = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<TResponse>(responseString) ?? new TResponse();
+            var responseString = await response.Content.ReadAsStreamAsync();
+            return await JsonSerializer.DeserializeAsync<TResponse>(responseString, _options) ?? new TResponse();
         }
         catch (Exception e) when (e is HttpRequestException or JsonException)
         {
@@ -119,8 +112,6 @@ public class Repository<TResponse, TRequest> : IRepository<TResponse, TRequest>
             };
         }
     }
-
- 
 
     public async Task<bool> Delete(string id)
     {

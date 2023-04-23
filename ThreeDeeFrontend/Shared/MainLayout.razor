@@ -33,10 +33,10 @@
             <div class="d-flex justify-center flex-grow-1 gap-4">
                 @if (AuthenticationValidator.IsAuthenticated)
                 {
-                    <MudButton Href="/files" Variant="Variant.Filled">Dateien</MudButton>
+                    <MudButton Href="/" Variant="Variant.Filled">Dateien</MudButton>
                 }
                 <MudButton Href="/advantages" Variant="Variant.Filled">Warum CreationStation</MudButton>
-                <MudButton Variant="Variant.Filled">Kontakt & Support</MudButton>
+                <MudButton Href="/contact" Variant="Variant.Filled">Kontakt & Support</MudButton>
             </div>
             <div style="padding-right: 50px; display: flex; align-items: center; align-content: center;">
                 @if (AuthenticationValidator.IsAuthenticated)
@@ -66,7 +66,7 @@
         else{<img src="assets/logo3dlight.png" style="height: 30px;"/>}
         <div style="flex-direction: column; display: flex; align-items: center;">
             <MudLink Href="/imprint">Impressum</MudLink>
-            <MudLink Href="/dsgvo">DSGVO</MudLink>
+            <MudLink Href="/gdpr">DSGVO</MudLink>
             <MudLink Href="https://github.com/HansenBerlin/ThreeDeeFrontend">Github</MudLink>
         </div>
         <MudText>© CreationStation GmbH @DateTime.Now.Year.ToString()</MudText>

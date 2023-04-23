@@ -1,9 +1,9 @@
 namespace ThreeDeeInfrastructure;
 
-public class ResourceUrls
+public static class ResourceUrls
 {
-    public const string Files = "/api/files";
-    //public const string Model = "/models";
+    public const string Files = "/files";
     public const string GCodeFilesInfo = "/gcodefiles/info";
-    public const string UsersEndpoint = "/api/users";
+    public const string Users = "/users";
+    public const string FallbackUrl = "http://localhost:8000/api";
 }

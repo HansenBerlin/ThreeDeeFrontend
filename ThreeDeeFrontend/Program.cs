@@ -11,6 +11,7 @@ using ThreeDeeFrontend.Areas.Identity;
 using ThreeDeeFrontend.Data;
 using ThreeDeeFrontend.Services;
 using ThreeDeeInfrastructure.RequestModels;
+using ThreeDeeInfrastructure.ResponseModels;
 
 var builder = WebApplication.CreateBuilder(args);
 var appSettingsFilePath = builder.Environment.EnvironmentName 
@@ -25,6 +26,7 @@ builder.Services.AddMudServices();
 builder.Services.AddSingleton<IEndpointService, EndpointService>();
 builder.Services.AddSingleton<IRepository<FileModel, FileRequestModel>, Repository<FileModel, FileRequestModel>>();
 builder.Services.AddSingleton<IRepository<GCodeSettingsModel, GCodeSettingsModel>, Repository<GCodeSettingsModel, GCodeSettingsModel>>();
+builder.Services.AddSingleton<IRepository<UserResponseModel, UserRequestModel>, Repository<UserResponseModel, UserRequestModel>>();
 builder.Services.AddScoped<IJsInteropService<ModelRenderer>, JsInteropService<ModelRenderer>>();
 builder.Services.AddScoped<IThemeProviderService, ThemeProviderService>();
 builder.Services.AddScoped<IGCodeSettingsRepository, GCodeSettingsRepository>();
