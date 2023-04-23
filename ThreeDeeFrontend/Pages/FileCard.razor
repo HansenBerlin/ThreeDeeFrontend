@@ -38,7 +38,7 @@
                 <ModelRenderer
                     @ref="_modelRendererRef"
                     Name="@_file.FullName"
-                    ProgressHasChanged="ProgressHasChangedCallback"
+                    ProgressHasChanged="async (x) => await ProgressHasChangedCallback(x)"
                     ColorValue="@_color.Value[..7]"/>
                 if (_progress < 100 || true)
                 {
@@ -71,7 +71,7 @@
                 MultiExpansion="true">
                 <MudExpansionPanel IsExpanded="true" Style="padding: 0; border-style: solid; border-width: 1px; border-color: #767676; border-radius: 4px;"
                     Text="@Localization.PagesFileCardGCode">
-                    <GCodeTable Id="@_file.Id"/>
+                    <GCodeTable File="@_file"/>
                 </MudExpansionPanel>
                 <MudExpansionPanel
                     Text="@Localization.PagesFileCardComments">

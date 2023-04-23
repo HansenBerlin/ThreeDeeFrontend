@@ -9,12 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5a97b10-25f6-4d14-a86b-aa30fe4fdd62" name="Changes" comment="">
+    <list default="true" id="f5a97b10-25f6-4d14-a86b-aa30fe4fdd62" name="Changes" comment="- fix file upload">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ThreeDeeFrontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThreeDeeFrontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Components/FileUpload.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Components/FileUpload.razor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeInfrastructure/RequestModels/FileRequestModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeInfrastructure/RequestModels/FileRequestModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeInfrastructure/ResourceUrls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeInfrastructure/ResourceUrls.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Components/GCodeTable.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Components/GCodeTable.razor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/FileCard.razor" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/FileCard.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/GCodeAnalyzer.razor" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/GCodeAnalyzer.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/GCodeAnalyzer.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/GCodeAnalyzer.razor.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +214,7 @@
       <workItem from="1681979830950" duration="5530000" />
       <workItem from="1682167287162" duration="9392000" />
       <workItem from="1682234741742" duration="18972000" />
-      <workItem from="1682284918776" duration="1753000" />
+      <workItem from="1682284918776" duration="3649000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1675880923088</created>
@@ -503,7 +503,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682267132719</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="- fix file upload">
+      <created>1682287019101</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1682287019101</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -530,7 +537,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="- added poc (integration of gcode analyzer)&#10;- kudos https://github.com/syue87/GCodeAnalyser/tree/master" />
     <MESSAGE value="- refactor gcode analyzer" />
     <MESSAGE value="- refactor js files&#10;- simplify markup" />
     <MESSAGE value="- styling" />
@@ -555,7 +561,8 @@
     <MESSAGE value="- marketing page design improvements" />
     <MESSAGE value="- added imprint and gdpr pages&#10;- improved stylings" />
     <MESSAGE value="- add xheaders&#10;- fix file get" />
-    <option name="LAST_COMMIT_MESSAGE" value="- add xheaders&#10;- fix file get" />
+    <MESSAGE value="- fix file upload" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fix file upload" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -676,6 +683,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ThreeDeeFrontend/Components/GCodeTable.razor.cs</url>
+          <line>45</line>
+          <properties documentPath="C:\Users\Hannes\source\repos\HWR\WebEntwicklung\docker-demo-devenv\frontend\devenv-frontend\ThreeDeeFrontend\Components\GCodeTable.razor.cs" initialLine="45" containingFunctionPresentation="Method 'OnButtonClicked'">
+            <startOffsets>
+              <option value="1442" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1501" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ThreeDeeFrontend/Pages/GCodeAnalyzer.razor.cs</url>
+          <line>17</line>
+          <properties documentPath="C:\Users\Hannes\source\repos\HWR\WebEntwicklung\docker-demo-devenv\frontend\devenv-frontend\ThreeDeeFrontend\Pages\GCodeAnalyzer.razor.cs" initialLine="17" containingFunctionPresentation="Method 'OnAfterRenderAsync'">
+            <startOffsets>
+              <option value="395" />
+            </startOffsets>
+            <endOffsets>
+              <option value="471" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="55" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

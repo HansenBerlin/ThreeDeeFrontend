@@ -1,10 +1,9 @@
-@page "/analyzer"
-
+@page "/analyzer/{filename}"
 
 <MudContainer id="bodyDiv" MaxWidth="MaxWidth.Large">
     <div class="header-div">
-        <h1 style="margin: 0;">Konfiganalyzer für @File</h1>
-        <a href="@($"/gcodefiles/{File}.txt")" download="@($"{File}.gcode")">
+        <h1 style="margin: 0;">Konfiganalyzer für @FileName</h1>
+        <a href="@($"/gcodefiles/{FileName}.txt")" download="@($"{FileName}.gcode")">
             <MudButton
                 Size="@Size.Medium"
                 Variant="Variant.Filled"
