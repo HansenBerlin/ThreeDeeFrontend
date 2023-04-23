@@ -10,6 +10,7 @@ public class FileModel : ResponseBase
     public long SizeBytes { get; set; }
     public int Downloads { get; set; }
     public float AverageRating { get; set; } 
+    
     public string Owner { get; set; } = "";
     public string Permission { get; set; } = "";
     //public List<int> GCodeIds { get; set; } = new();

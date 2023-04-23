@@ -9,16 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5a97b10-25f6-4d14-a86b-aa30fe4fdd62" name="Changes" comment="- added imprint and gdpr pages&#10;- improved stylings">
+    <list default="true" id="f5a97b10-25f6-4d14-a86b-aa30fe4fdd62" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ThreeDeeFrontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThreeDeeFrontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Areas/Identity/Pages/Shared/_LoginPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Areas/Identity/Pages/Shared/_LoginPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/FileCard.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/FileCard.razor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Components/FileUpload.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Components/FileUpload.razor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeInfrastructure/Repositories/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeInfrastructure/Repositories/Repository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreeDeeInfrastructure/RequestModels/FileRequestModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeInfrastructure/RequestModels/FileRequestModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ThreeDeeInfrastructure/ResourceUrls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeInfrastructure/ResourceUrls.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +48,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b37bdcda3df384671c8eed0dd528e74eff6e04eeb7b1e81f219e5e066318/ComponentBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c31ea8a13dab665551bcaa728037952c8e465affddbce326a9f15ce8c39cc275/Repository.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ea3213f3e661b7f93d6b3589bec41782ba58782ad27459d82659c6cb8ae1230/AuthorizeRouteView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeFrontend/Areas/Identity/Pages/Shared/_LoginPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeFrontend/Pages/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeFrontend/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeInfrastructure/ResourceUrls.cs" root0="SKIP_HIGHLIGHTING" />
@@ -217,7 +213,8 @@
       <workItem from="1681979359901" duration="439000" />
       <workItem from="1681979830950" duration="5530000" />
       <workItem from="1682167287162" duration="9392000" />
-      <workItem from="1682234741742" duration="14998000" />
+      <workItem from="1682234741742" duration="18972000" />
+      <workItem from="1682284918776" duration="1753000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1675880923088</created>
@@ -499,7 +496,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682239597650</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="- add xheaders&#10;- fix file get">
+      <created>1682267132718</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1682267132719</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -526,7 +530,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="- implement asp.net authentication&#10;- add google oauth authentication" />
     <MESSAGE value="- added poc (integration of gcode analyzer)&#10;- kudos https://github.com/syue87/GCodeAnalyser/tree/master" />
     <MESSAGE value="- refactor gcode analyzer" />
     <MESSAGE value="- refactor js files&#10;- simplify markup" />
@@ -551,7 +554,8 @@
     <MESSAGE value="- added marketing page&#10;- added icons" />
     <MESSAGE value="- marketing page design improvements" />
     <MESSAGE value="- added imprint and gdpr pages&#10;- improved stylings" />
-    <option name="LAST_COMMIT_MESSAGE" value="- added imprint and gdpr pages&#10;- improved stylings" />
+    <MESSAGE value="- add xheaders&#10;- fix file get" />
+    <option name="LAST_COMMIT_MESSAGE" value="- add xheaders&#10;- fix file get" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -574,13 +578,104 @@
           <line>33</line>
           <properties documentPath="C:\Users\Hannes\source\repos\HWR\WebEntwicklung\docker-demo-devenv\frontend\devenv-frontend\ThreeDeeFrontend\Pages\FileCard.razor.cs" initialLine="37" containingFunctionPresentation="Method 'OnAfterRenderAsync'">
             <startOffsets>
-              <option value="938" />
+              <option value="940" />
             </startOffsets>
             <endOffsets>
-              <option value="989" />
+              <option value="991" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ThreeDeeFrontend/Components/FileUpload.razor.cs</url>
+          <line>28</line>
+          <properties documentPath="C:\Users\Hannes\source\repos\HWR\WebEntwicklung\docker-demo-devenv\frontend\devenv-frontend\ThreeDeeFrontend\Components\FileUpload.razor.cs" initialLine="28" containingFunctionPresentation="Method 'UploadFiles'">
+            <startOffsets>
+              <option value="841" />
+            </startOffsets>
+            <endOffsets>
+              <option value="925" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ThreeDeeFrontend/Components/FileUpload.razor.cs</url>
+          <line>87</line>
+          <properties documentPath="C:\Users\Hannes\source\repos\HWR\WebEntwicklung\docker-demo-devenv\frontend\devenv-frontend\ThreeDeeFrontend\Components\FileUpload.razor.cs" initialLine="86" containingFunctionPresentation="Method 'UploadFiles'">
+            <startOffsets>
+              <option value="2977" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3001" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ThreeDeeFrontend/Components/FileUpload.razor.cs</url>
+          <line>113</line>
+          <properties documentPath="C:\Users\Hannes\source\repos\HWR\WebEntwicklung\docker-demo-devenv\frontend\devenv-frontend\ThreeDeeFrontend\Components\FileUpload.razor.cs" initialLine="109" containingFunctionPresentation="Method 'UploadFiles'">
+            <startOffsets>
+              <option value="3891" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3911" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ThreeDeeFrontend/Components/FileUpload.razor.cs</url>
+          <line>98</line>
+          <properties documentPath="C:\Users\Hannes\source\repos\HWR\WebEntwicklung\docker-demo-devenv\frontend\devenv-frontend\ThreeDeeFrontend\Components\FileUpload.razor.cs" initialLine="97" containingFunctionPresentation="Method 'UploadFiles'">
+            <startOffsets>
+              <option value="3369" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3425" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ThreeDeeInfrastructure/Repositories/Repository.cs</url>
+          <line>82</line>
+          <properties documentPath="C:\Users\Hannes\source\repos\HWR\WebEntwicklung\docker-demo-devenv\frontend\devenv-frontend\ThreeDeeInfrastructure\Repositories\Repository.cs" initialLine="82" containingFunctionPresentation="Method 'Insert'">
+            <startOffsets>
+              <option value="2447" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2583" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ThreeDeeFrontend/Components/FileUpload.razor.cs</url>
+          <line>82</line>
+          <properties documentPath="C:\Users\Hannes\source\repos\HWR\WebEntwicklung\docker-demo-devenv\frontend\devenv-frontend\ThreeDeeFrontend\Components\FileUpload.razor.cs" initialLine="82" containingFunctionPresentation="Method 'UploadFiles'">
+            <startOffsets>
+              <option value="2835" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2854" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ThreeDeeFrontend/Components/FileUpload.razor.cs</url>
+          <line>90</line>
+          <properties documentPath="C:\Users\Hannes\source\repos\HWR\WebEntwicklung\docker-demo-devenv\frontend\devenv-frontend\ThreeDeeFrontend\Components\FileUpload.razor.cs" initialLine="89" containingFunctionPresentation="Method 'UploadFiles'">
+            <startOffsets>
+              <option value="3056" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3114" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

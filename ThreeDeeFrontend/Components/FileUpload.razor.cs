@@ -73,13 +73,15 @@ public partial class FileUpload
                     if (percentComplete % 1 == 0 && percentComplete != percentCache)
                     {
                         percentCache = percentComplete;
-                        await UploadStateHasChanged.InvokeAsync(percentComplete);
+                        //await UploadStateHasChanged.InvokeAsync(percentComplete);
                     }
                 }
             }
         }
         catch (Exception e)
         {
+            Debug.WriteLine(e);
+            throw;
             Snackbar.Add($"Upload of {file.Name} failed.", Severity.Error);
         }
         
@@ -102,17 +104,22 @@ public partial class FileUpload
             else
             {
                 Snackbar.Add($"Upload of {file.Name} failed.", Severity.Error);
+                await readStream.DisposeAsync();
+                await writeStream.DisposeAsync();
+                File.Delete(path);
             }
         }
         else
         {
-            writeStream.Close();
+            //writeStream.Close();
+            Snackbar.Add($"Upload of {file.Name} cancelled.", Severity.Info);
+            await readStream.DisposeAsync();
             await writeStream.DisposeAsync();
             File.Delete(path);
-            _forceStop = false;
-            Snackbar.Add($"Upload of {file.Name} cancelled.", Severity.Info);
+            //_forceStop = false;
         }
         _isUploading = false;
+        _forceStop = false;
         await UploadStateHasChanged.InvokeAsync(0);
     }
 
