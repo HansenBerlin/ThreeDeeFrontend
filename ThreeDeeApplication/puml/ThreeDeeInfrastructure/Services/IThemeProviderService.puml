@@ -1,0 +1,9 @@
+@startuml
+interface IThemeProviderService {
+    IsDarkMode : bool <<get>> <<set>>
+    CurrentColor : string <<get>>
+}
+class "EventCallback<string>" {
+}
+IThemeProviderService --> "BackgroundColorHasChanged<string>" "EventCallback<string>"
+@enduml

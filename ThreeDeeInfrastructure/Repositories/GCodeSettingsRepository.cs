@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using ThreeDeeApplication.Enums;
-using ThreeDeeApplication.Models;
+﻿using ThreeDeeApplication.Models;
 
 namespace ThreeDeeInfrastructure.Repositories;
 

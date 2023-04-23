@@ -11,7 +11,7 @@ public partial class FileCardPreview
     public FileModel File { get; set; }
     
     [Parameter] 
-    public EventCallback<int> ButtonClicked { get; set; }
+    public EventCallback<string> ButtonClicked { get; set; }
     
 
 }

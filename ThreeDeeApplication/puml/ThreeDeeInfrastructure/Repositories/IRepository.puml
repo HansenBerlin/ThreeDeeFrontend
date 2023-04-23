@@ -1,0 +1,10 @@
+@startuml
+interface "IRepository`2"<TResponse,in TRequest> {
+    GetAll() : Task<IEnumerable<TResponse>>
+    GetAll(id:string) : Task<IEnumerable<TResponse>>
+    Get(id:string) : Task<TResponse>
+    Insert(requestModel:TRequest) : Task<TResponse>
+    Update(requestModel:TRequest, id:string) : Task<TResponse>
+    Delete(id:string) : Task<bool>
+}
+@enduml

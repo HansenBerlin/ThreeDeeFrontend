@@ -1,54 +1,22 @@
+@using System.Diagnostics
 @inject IWebHostEnvironment Environment
-<MudFileUpload T="IBrowserFile" FilesChanged="UploadFiles" MaximumFileCount="1" >
-    <ButtonTemplate>
-        <MudButton HtmlTag="label"
-                   Variant="Variant.Filled"
-                   Color="Color.Primary"
-                   StartIcon="@Icons.Material.Filled.CloudUpload"
-                   for="@context">
-            Upload Files
-        </MudButton>
-    </ButtonTemplate>
-</MudFileUpload>
+@inject ISnackbar Snackbar
+@attribute [Authorize]
 
-
-    <MudText Typo="@Typo.h6">@files.Count() File@(files.Count() == 1 ? "" : "s"):</MudText>
-    <MudList>
-        @foreach (var file in files)
-        {
-            <MudListItem Icon="@Icons.Material.Filled.AttachFile" @key="@file">
-                @file.Name <code>@file.Size bytes</code>
-            </MudListItem>
-        }
-    </MudList>
-
-
-@code
+@if (_isUploading)
 {
-    IList<IBrowserFile> files = new List<IBrowserFile>();
-    private int maxAllowedSize = 1024 * 1024 * 1024;
-
-    private async Task UploadFiles(IBrowserFile file)
-    {
-        
-        files.Clear();
-        var path = Path.Combine(Environment.ContentRootPath,
-            "unsafe_uploads", file.Name);
-        await using FileStream writeStream = new(path, FileMode.Create);
-        using var readStream = file.OpenReadStream(maxAllowedSize);
-        var bytesRead = 0;
-        var totalRead = 0;
-        var buffer = new byte[1024 * 10];
-
-        while ((bytesRead = await readStream.ReadAsync(buffer)) != 0)
-        {
-            totalRead += bytesRead;
-            await writeStream.WriteAsync(buffer, 0, bytesRead);
-            StateHasChanged();
-        }
-        files.Add(file);
-
-
-    //TODO upload the files to the server
-    }
+    <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="Callback">CANCEL UPLOAD</MudButton>
+}
+else
+{
+    <MudFileUpload T="IBrowserFile" FilesChanged="async f => await UploadFiles(f)" MaximumFileCount="1" Style="margin: 0;">
+        <ButtonTemplate>
+            <MudButton HtmlTag="label"
+                       Variant="Variant.Text"
+                       StartIcon="@Icons.Material.Filled.CloudUpload"
+                       for="@context">
+                Upload Files
+            </MudButton>
+        </ButtonTemplate>
+    </MudFileUpload>
 }

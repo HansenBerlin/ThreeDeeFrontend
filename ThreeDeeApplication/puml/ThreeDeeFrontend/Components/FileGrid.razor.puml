@@ -1,0 +1,6 @@
+@startuml
+class FileGrid <<partial>> {
+    + UserId : string <<get>> <<set>>
+}
+FileGrid --> "Vm" IFilesGridViewModel
+@enduml

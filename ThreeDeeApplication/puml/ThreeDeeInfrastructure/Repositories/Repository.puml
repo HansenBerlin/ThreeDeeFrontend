@@ -1,0 +1,14 @@
+@startuml
+class "Repository`2"<TResponse,TRequest> {
+    + Repository(httpClient:HttpClient, endpointService:IEndpointService)
+    + <<async>> GetAll() : Task<IEnumerable<TResponse>>
+    + <<async>> GetAll(id:string) : Task<IEnumerable<TResponse>>
+    + <<async>> Get(id:string) : Task<TResponse>
+    + <<async>> Insert(requestModel:TRequest) : Task<TResponse>
+    + <<async>> Update(requestModel:TRequest, id:string) : Task<TResponse>
+    + <<async>> Delete(id:string) : Task<bool>
+}
+class "IRepository`2"<T1,T2> {
+}
+"IRepository`2" "<TResponse,TRequest>" <|-- "Repository`2"
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+class FileUpload <<partial>> {
+}
+class "EventCallback"<int> {
+}
+class "IRepository`2"<T1,T2> {
+}
+FileUpload --> "UploadStateHasChanged<int>" "EventCallback<int>"
+FileUpload --> "FileRepository<FileModel,FileRequestModel>" "IRepository`2"
+FileUpload --> "AuthenticationValidator" AuthenticationValidator
+@enduml

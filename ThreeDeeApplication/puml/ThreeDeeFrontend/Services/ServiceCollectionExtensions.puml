@@ -1,0 +1,5 @@
+@startuml
+class ServiceCollectionExtensions <<static>> {
+    + {static} AddOAuthProviders(services:IServiceCollection, appSettingsFilePath:string) : void
+}
+@enduml

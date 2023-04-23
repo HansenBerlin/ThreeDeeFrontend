@@ -1,0 +1,6 @@
+@startuml
+class ResponseBase {
+    + IsResponseSuccess : bool <<get>> <<init>> = true
+}
+IResponseBase <|-- ResponseBase
+@enduml

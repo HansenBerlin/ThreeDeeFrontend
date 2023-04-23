@@ -1,0 +1,5 @@
+@startuml
+interface IEndpointService {
+    GetMappedUrl(responseModel:Type) : string
+}
+@enduml

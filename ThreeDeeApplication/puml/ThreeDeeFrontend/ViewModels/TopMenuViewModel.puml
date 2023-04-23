@@ -1,0 +1,7 @@
+@startuml
+class TopMenuViewModel {
+}
+
+TopMenuViewModel o-> "LibraryItems<DropDownMenuItemModel>" "List`1"
+TopMenuViewModel o-> "FilesItems<DropDownMenuItemModel>" "List`1"
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+class SearchBar <<partial>> {
+    + SelectedSearchValue : string <<get>> <<set>>
+}
+class "Func<string,Task<IEnumerable<string>>>" {
+}
+SearchBar --> "Search<string,Task<IEnumerable<string>>>" "Func<string,Task<IEnumerable<string>>>"
+@enduml

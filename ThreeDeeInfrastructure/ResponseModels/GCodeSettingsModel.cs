@@ -1,6 +1,4 @@
-﻿using System;
-using ThreeDeeApplication.Enums;
-using ThreeDeeInfrastructure.ResponseModels;
+﻿using ThreeDeeInfrastructure.ResponseModels;
 
 namespace ThreeDeeApplication.Models;
 

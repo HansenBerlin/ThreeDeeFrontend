@@ -1,11 +1,10 @@
 ﻿@inherits LayoutComponentBase
 @using Color = MudBlazor.Color
-@using ThreeDeeFrontend.ViewModels
 @using ThreeDeeFrontend.Components
 @using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
 @using Microsoft.AspNetCore.Components
+@using ThreeDeeFrontend.Services
 @using ThreeDeeInfrastructure.Services
-@inject TopMenuViewModel TopMenuViewModel
 
 <PageTitle>@Localization.SharedMainPageTitle</PageTitle>
 <MudThemeProvider 
@@ -14,43 +13,115 @@
     Theme="_theme"/>
 <MudDialogProvider/>
 <MudSnackbarProvider/>
+<MudScrollToTop>
+    <MudFab Color="Color.Tertiary" Icon="@Icons.Material.Filled.ArrowCircleUp" />
+</MudScrollToTop>
 <MudLayout>
-    <MudAppBar Elevation="1">
-        <MudButton
-            Typo="Typo.h5"
-            Class="ml-3" Href="/">
-            Logo
-        </MudButton>
-        <div class="d-flex justify-center flex-grow-1 gap-4">
-        </div>
-        <div style="padding-right: 50px;">
-            <LoginDisplay/>
-        </div>
-        <MudSwitch 
-            @bind-Checked="@ThemeProviderService.IsDarkMode"
-            Color="Color.Primary" T="bool" 
-            Label="@(ThemeProviderService.IsDarkMode ? @Localization.SharedMainDarkModeDark : @Localization.SharedMainDarkModeLight)"/>
-    </MudAppBar>
-    <MudMainContent>
-        @Body
-    </MudMainContent>
+    @if (_isInitDone)
+    {
+        <MudAppBar Elevation="1" Style="@($"background: {MenuBarBackgroundColor()};")">
+            <a href="/">
+                @if (ThemeProviderService.IsDarkMode)
+                {
+                    <img src="assets/logo3ddark.png" style="height: 40px;"/>
+                }
+                else
+                {
+                    <img src="assets/logo3dlight.png" style="height: 40px;"/>
+                }
+            </a>
+            <div class="d-flex justify-center flex-grow-1 gap-4">
+                @if (AuthenticationValidator.IsAuthenticated)
+                {
+                    <MudButton Href="/" Variant="Variant.Filled">Dateien</MudButton>
+                }
+                <MudButton Href="/advantages" Variant="Variant.Filled">Warum CreationStation</MudButton>
+                <MudButton Href="/contact" Variant="Variant.Filled">Kontakt & Support</MudButton>
+            </div>
+            <div style="padding-right: 50px; display: flex; align-items: center; align-content: center;">
+                @if (AuthenticationValidator.IsAuthenticated)
+                {
+                    <FileUpload UploadStateHasChanged="i => { _uploaded = i; }"/>
+                }
+                <LoginDisplay/>
+            </div>
+            <MudSwitch
+                @bind-Checked="@ThemeProviderService.IsDarkMode"
+                Color="Color.Primary" T="bool"
+                Label="@(ThemeProviderService.IsDarkMode ? Localization.SharedMainDarkModeDark : Localization.SharedMainDarkModeLight)"/>
+        </MudAppBar>
+        if (_uploaded != 0)
+        {
+            <MudProgressLinear Style="top: 36px; height: 6px;" Color="Color.Secondary" Value="@_uploaded" Class="my-7"/>
+        }
+        <MudMainContent Style="@(IsLandingPage ? "height: 100vh;" : "height: auto; min-height: 100vh;")">
+            @Body
+        </MudMainContent>   
+    }
 </MudLayout>
+@if (IsLandingPage == false)
+{
+    <footer class="cst-footer">
+        @if (ThemeProviderService.IsDarkMode){<img src="assets/logo3ddark.png" style="height: 30px;"/>}
+        else{<img src="assets/logo3dlight.png" style="height: 30px;"/>}
+        <div style="flex-direction: column; display: flex; align-items: center;">
+            <MudLink Href="/imprint">Impressum</MudLink>
+            <MudLink Href="/gdpr">DSGVO</MudLink>
+            <MudLink Href="https://github.com/HansenBerlin/ThreeDeeFrontend">Github</MudLink>
+        </div>
+        <MudText>© CreationStation GmbH @DateTime.Now.Year.ToString()</MudText>
+    </footer>
+}
+
+
 
 @code
 {
     [Inject]
-    private IThemeProviderService ThemeProviderService { get; set; }
+    public IThemeProviderService ThemeProviderService { get; set; }
+    
+    [Inject]
+    public AuthenticationValidator AuthenticationValidator { get; set; }
     
     [Inject] 
-    private ProtectedLocalStorage BrowserSettings { get; set; }
+    public ProtectedLocalStorage BrowserSettings { get; set; }
     
-    private readonly MudTheme _theme = new();
-    private const string SaveSettingsKey = "threedeedarkmodesetting";
-    
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+    private bool IsLandingPage => NavigationManager.BaseUri + "landing-page" == NavigationManager.Uri;
+
+    readonly MudTheme _theme = new()
     {
-        if (firstRender)
+        Palette = new Palette()
         {
+            Primary = Colors.Amber.Default,
+            Secondary = Colors.DeepOrange.Darken1,
+            AppbarBackground = Colors.Indigo.Lighten5,
+            Background = Colors.Grey.Lighten5,
+            Tertiary = Colors.Indigo.Darken1,
+        },
+        PaletteDark = new PaletteDark()
+        {
+            Primary = Colors.Amber.Default,
+            Secondary = Colors.DeepPurple.Lighten4,
+            AppbarBackground = Colors.Indigo.Darken1,
+            Tertiary = Colors.Indigo.Darken1,
+            Background = "#27282c"
+        }
+
+    };
+    private const string SaveSettingsKey = "threedeedarkmodesetting";
+    private int _uploaded;
+    private bool _isInitDone;
+
+
+    protected override async Task OnAfterRenderAsync(bool isFirstRender)
+    {
+        if (isFirstRender)
+        {
+            AuthenticationValidator.AuthenticationStateHasChanged = EventCallback.Factory
+                            .Create(this, async () => await InvokeAsync(StateHasChanged)); 
             try
             {
                 var result = await BrowserSettings.GetAsync<bool>(SaveSettingsKey);
@@ -67,7 +138,8 @@
             {
                 Console.WriteLine(e);
             }
-            StateHasChanged();
+            _isInitDone = true;
+            await InvokeAsync(StateHasChanged);
         }
     }
 
@@ -82,6 +154,16 @@
         {
             Console.WriteLine(e);
         }
+    }
+
+    private string MenuBarBackgroundColor()
+    {
+        bool isDarkMode = ThemeProviderService.IsDarkMode;
+        if (IsLandingPage && AuthenticationValidator.IsAuthenticated == false)
+        {
+            return "#0000001a";
+        }
+        return isDarkMode ? Colors.Indigo.Darken1 : Colors.Indigo.Lighten5;
     }
 }
 

@@ -13,7 +13,7 @@ public partial class GCodeTable
     private NavigationManager NavigationManager { get; set; }
 
     [Parameter]
-    public int Id { get; set; }
+    public string Id { get; set; }
     
     private IEnumerable<GCodeSettingsModel> _gCodes = new List<GCodeSettingsModel>();
 
@@ -22,7 +22,7 @@ public partial class GCodeTable
     {
         if (firstRender)
         {
-            _gCodes = await GCodeSettingsRepository.GetAll(Id.ToString());
+            _gCodes = await GCodeSettingsRepository.GetAll(Id);
             await InvokeAsync(StateHasChanged);
         }
     }

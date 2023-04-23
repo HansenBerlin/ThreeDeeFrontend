@@ -1,0 +1,5 @@
+@startuml
+interface IResponseBase {
+    + IsResponseSuccess : bool <<get>> <<init>>
+}
+@enduml
