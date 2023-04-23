@@ -62,7 +62,9 @@ public class Repository<TResponse, TRequest> : IRepository<TResponse, TRequest>
         try
         {
             var response = await _httpClient.GetFromJsonAsync<TResponse>($"{_uri}/{id}", _options);
-            return response ?? new TResponse();
+            var res =  response ?? new TResponse();
+            Debug.WriteLine(res.IsResponseSuccess);
+            return res;
         }
         catch (Exception e) when (e is HttpRequestException or JsonException)
         {
@@ -83,6 +85,7 @@ public class Repository<TResponse, TRequest> : IRepository<TResponse, TRequest>
                 .Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var response = await _httpClient.PostAsJsonAsync(_uri, requestModel, _options);
             var responseString = await response.Content.ReadAsStreamAsync();
+            Debug.WriteLine(responseString);
             return await JsonSerializer.DeserializeAsync<TResponse>(responseString, _options) ?? new TResponse();
         }
         catch (Exception e) when (e is HttpRequestException or JsonException)

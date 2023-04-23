@@ -27,19 +27,15 @@ public partial class FileCard
     [Inject]
     public IRepository<FileModel, FileRequestModel> FileRepository { get; set; }
 
-    protected override async Task OnInitializedAsync()
-    {
-    }
-
     protected override async Task OnAfterRenderAsync(bool isFirstRender)
     {
         if (isFirstRender)
         {
-            _file = await FileRepository.Get($"{Id}/{UserId}");
+           // _file = await FileRepository.Get($"{Id}/{UserId}");
+            _file = await FileRepository.Get(Id);
             _isInitDone = true;
+            StateHasChanged();
         }
-        Console.WriteLine(UserId);
-        Console.WriteLine(_file.Id);
     }
 
     private async Task ProgressHasChangedCallback(double progress)

@@ -5,6 +5,8 @@ using ThreeDeeFrontend.ViewModels;
 using ThreeDeeInfrastructure.Repositories;
 using ThreeDeeInfrastructure.Services;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.HttpLogging;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using ThreeDeeApplication.Models;
 using ThreeDeeFrontend.Areas.Identity;
@@ -23,10 +25,10 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddHttpClient();
 builder.Services.AddMudServices();
-builder.Services.AddSingleton<IEndpointService, EndpointService>();
-builder.Services.AddSingleton<IRepository<FileModel, FileRequestModel>, Repository<FileModel, FileRequestModel>>();
-builder.Services.AddSingleton<IRepository<GCodeSettingsModel, GCodeSettingsModel>, Repository<GCodeSettingsModel, GCodeSettingsModel>>();
-builder.Services.AddSingleton<IRepository<UserResponseModel, UserRequestModel>, Repository<UserResponseModel, UserRequestModel>>();
+builder.Services.AddScoped<IEndpointService, EndpointService>();
+builder.Services.AddScoped<IRepository<FileModel, FileRequestModel>, Repository<FileModel, FileRequestModel>>();
+builder.Services.AddScoped<IRepository<GCodeSettingsModel, GCodeSettingsModel>, Repository<GCodeSettingsModel, GCodeSettingsModel>>();
+builder.Services.AddScoped<IRepository<UserResponseModel, UserRequestModel>, Repository<UserResponseModel, UserRequestModel>>();
 builder.Services.AddScoped<IJsInteropService<ModelRenderer>, JsInteropService<ModelRenderer>>();
 builder.Services.AddScoped<IThemeProviderService, ThemeProviderService>();
 builder.Services.AddScoped<IGCodeSettingsRepository, GCodeSettingsRepository>();
@@ -39,8 +41,17 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
+var forwardedHeadersOptions = new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto,
+    RequireHeaderSymmetry = false
+};
+forwardedHeadersOptions.KnownNetworks.Clear();
+forwardedHeadersOptions.KnownProxies.Clear();
+
 
 var app = builder.Build();
+app.UseForwardedHeaders(forwardedHeadersOptions);
 
 if (!app.Environment.IsDevelopment())
 {

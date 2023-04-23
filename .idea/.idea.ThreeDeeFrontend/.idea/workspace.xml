@@ -9,44 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5a97b10-25f6-4d14-a86b-aa30fe4fdd62" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/GCodeAnalyzer.razor.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/Gdpr.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/Imprint.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ThreeDeeInfrastructure/RequestModels/UserRequestModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ThreeDeeInfrastructure/ResponseModels/UserResponseModel.cs" afterDir="false" />
+    <list default="true" id="f5a97b10-25f6-4d14-a86b-aa30fe4fdd62" name="Changes" comment="- added imprint and gdpr pages&#10;- improved stylings">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ThreeDeeFrontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThreeDeeFrontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Areas/Identity/Pages/Shared/_LoginPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Areas/Identity/Pages/Shared/_LoginPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Components/FileCardPreview.razor" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Components/FileCardPreview.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Components/FileGrid.razor" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Components/FileGrid.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Components/FileUpload.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Components/FileUpload.razor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Components/GCodeTable.razor" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Components/GCodeTable.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Components/TimeLineItem.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Components/TimeLineItem.razor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/Advantages.razor" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/Advantages.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/FileCard.razor" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/FileCard.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/FileCard.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/FileCard.razor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/GCodeAnalyzer.razor" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/GCodeAnalyzer.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/Index.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/Index.razor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Pages/_Layout.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Services/AuthenticationValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Services/AuthenticationValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Shared/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Shared/MainLayout.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/ViewModels/FilesGridViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/ViewModels/FilesGridViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/app.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/wwwroot/css/site.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/wwwroot/js/analyzer/gcodeAnalyser.js" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/wwwroot/js/analyzer/gcodeAnalyser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeInfrastructure/Repositories/GCodeSettingsRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeInfrastructure/Repositories/GCodeSettingsRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeInfrastructure/Repositories/IFileRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeInfrastructure/Repositories/IFileRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeInfrastructure/Repositories/IGCodeSettingsRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeInfrastructure/Repositories/IGCodeSettingsRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThreeDeeFrontend/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeFrontend/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ThreeDeeInfrastructure/Repositories/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeInfrastructure/Repositories/Repository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeInfrastructure/RequestModels/FileRequestModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeInfrastructure/RequestModels/FileRequestModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ThreeDeeInfrastructure/ResourceUrls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeInfrastructure/ResourceUrls.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeInfrastructure/ResponseModels/FileModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeInfrastructure/ResponseModels/FileModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeInfrastructure/ResponseModels/GCodeSettingsModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeInfrastructure/ResponseModels/GCodeSettingsModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeInfrastructure/ResponseModels/ResponseBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeInfrastructure/ResponseModels/ResponseBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeInfrastructure/Services/EndpointService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeInfrastructure/Services/EndpointService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeInfrastructure/Services/IJsInteropService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeInfrastructure/Services/IJsInteropService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThreeDeeInfrastructure/Services/JsInteropService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ThreeDeeInfrastructure/Services/JsInteropService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,17 +49,13 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1aa8f79e1b14eb5b2ff38a1b982b2e688673c7d6cab7979747ea238118f41/RenderTreeBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/29d413ab2fdd934034e94d91ac54dad4fd453660b2fe63750ffc2b4b22879/String.Manipulation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3a0fdaa83b0344dd1fcb11565650103a7070e3ebbbc44a6b145c17bb13a945/EventCallbackWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7ec11fff925f57ab9bd99f44cdf55da2f1a44fd38a4f7f18ba1a4c5c5613e049/AuthenticationStateProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b37bdcda3df384671c8eed0dd528e74eff6e04eeb7b1e81f219e5e066318/ComponentBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c31ea8a13dab665551bcaa728037952c8e465affddbce326a9f15ce8c39cc275/Repository.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ea3213f3e661b7f93d6b3589bec41782ba58782ad27459d82659c6cb8ae1230/AuthorizeRouteView.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeFrontend/App.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeFrontend/Areas/Identity/Pages/Shared/_LoginPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeFrontend/Pages/Advantages.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeFrontend/Pages/Advantages.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeFrontend/Pages/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeFrontend/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeFrontend/Services/AuthenticationValidator.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeFrontend/Shared/MainLayout.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeInfrastructure/Services/EndpointService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Hannes/source/repos/HWR/WebEntwicklung/docker-demo-devenv/frontend/devenv-frontend/ThreeDeeInfrastructure/ResourceUrls.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -248,7 +217,7 @@
       <workItem from="1681979359901" duration="439000" />
       <workItem from="1681979830950" duration="5530000" />
       <workItem from="1682167287162" duration="9392000" />
-      <workItem from="1682234741742" duration="2513000" />
+      <workItem from="1682234741742" duration="14998000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1675880923088</created>
@@ -523,7 +492,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682172337534</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="- added imprint and gdpr pages&#10;- improved stylings">
+      <created>1682239597650</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1682239597650</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -550,7 +526,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="- add file grid view model&#10;- extract search and filter functions from components&#10;- add event based structure to file grid component" />
     <MESSAGE value="- implement asp.net authentication&#10;- add google oauth authentication" />
     <MESSAGE value="- added poc (integration of gcode analyzer)&#10;- kudos https://github.com/syue87/GCodeAnalyser/tree/master" />
     <MESSAGE value="- refactor gcode analyzer" />
@@ -575,7 +550,8 @@
     <MESSAGE value="- rm spaces" />
     <MESSAGE value="- added marketing page&#10;- added icons" />
     <MESSAGE value="- marketing page design improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="- marketing page design improvements" />
+    <MESSAGE value="- added imprint and gdpr pages&#10;- improved stylings" />
+    <option name="LAST_COMMIT_MESSAGE" value="- added imprint and gdpr pages&#10;- improved stylings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -595,29 +571,16 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ThreeDeeFrontend/Pages/FileCard.razor.cs</url>
-          <line>40</line>
-          <properties documentPath="C:\Users\Hannes\source\repos\HWR\WebEntwicklung\docker-demo-devenv\frontend\devenv-frontend\ThreeDeeFrontend\Pages\FileCard.razor.cs" initialLine="43" containingFunctionPresentation="Method 'OnAfterRenderAsync'">
+          <line>33</line>
+          <properties documentPath="C:\Users\Hannes\source\repos\HWR\WebEntwicklung\docker-demo-devenv\frontend\devenv-frontend\ThreeDeeFrontend\Pages\FileCard.razor.cs" initialLine="37" containingFunctionPresentation="Method 'OnAfterRenderAsync'">
             <startOffsets>
-              <option value="1108" />
+              <option value="938" />
             </startOffsets>
             <endOffsets>
-              <option value="1134" />
+              <option value="989" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ThreeDeeFrontend/Pages/FileCard.razor.cs</url>
-          <line>35</line>
-          <properties documentPath="C:\Users\Hannes\source\repos\HWR\WebEntwicklung\docker-demo-devenv\frontend\devenv-frontend\ThreeDeeFrontend\Pages\FileCard.razor.cs" initialLine="35" containingFunctionPresentation="Method 'OnAfterRenderAsync'">
-            <startOffsets>
-              <option value="965" />
-            </startOffsets>
-            <endOffsets>
-              <option value="983" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="43" />
+          <option name="timeStamp" value="44" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
