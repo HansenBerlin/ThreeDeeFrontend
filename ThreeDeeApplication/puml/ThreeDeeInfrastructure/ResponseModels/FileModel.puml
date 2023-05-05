@@ -1,0 +1,12 @@
+@startuml
+class FileModel {
+    + Id : string <<get>> <<set>>
+    + FullName : string <<get>> <<set>> = ""
+    + SizeBytes : long <<get>> <<set>>
+    + Downloads : int <<get>> <<set>>
+    + AverageRating : float <<get>> <<set>>
+    + Owner : string <<get>> <<set>> = ""
+    + Permission : string <<get>> <<set>> = ""
+}
+ResponseBase <|-- FileModel
+@enduml

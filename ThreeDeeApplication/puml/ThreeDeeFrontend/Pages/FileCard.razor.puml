@@ -1,0 +1,11 @@
+@startuml
+class FileCard <<partial>> {
+    + Id : string <<get>> <<set>>
+    + UserId : string <<get>> <<set>>
+}
+class "IRepository<FileModel,FileRequestModel>" {
+}
+
+FileCard --> "FileRepository<FileModel,FileRequestModel>" "IRepository<FileModel,FileRequestModel>"
+FileCard o-> "_files<IBrowserFile>"
+@enduml

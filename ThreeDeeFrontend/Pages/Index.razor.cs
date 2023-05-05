@@ -1,34 +1,43 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
-using ThreeDeeApplication.Models;
-using ThreeDeeInfrastructure.Repositories;
+﻿using Microsoft.AspNetCore.Components;
+using ThreeDeeFrontend.Services;
 
 namespace ThreeDeeFrontend.Pages;
 
 public partial class Index
 {
     [Inject]
-    private IFileRepository FileRepository { get; set; }
+    public AuthenticationValidator AuthenticationValidator { get; set; }
     
     [Inject]
-    private NavigationManager NavigationManager { get; set; }
+    public NavigationManager NavigationManager { get; set; }
 
-    private List<FileModel> _filteredFiles;
+    private bool _isInitDone;
+    private string _userId = "";
+    private bool _isAuthenticated;
 
-    protected override void OnParametersSet()
+    protected override async Task OnAfterRenderAsync(bool isFirstRender)
     {
-        _filteredFiles = FileRepository.MockData;
-    }
+        if (isFirstRender)
+        {
+            _isAuthenticated = await AuthenticationValidator.GetAuthenticationState();
+            if (_isAuthenticated)
+            {
+                _userId = await AuthenticationValidator.GetUserId();
+            }
+            else
+            {
+                NavigationManager.NavigateTo("/landing-page");
+            }
 
-    private void OnButtonClicked(int fileId)
-    {
-        NavigationManager.NavigateTo($"/model/{fileId}");
-    }
-
-    private async Task OnFilteredValueChanged(List<FileModel> filtered)
-    {
-        _filteredFiles = filtered;
-        await InvokeAsync(StateHasChanged);
+            if (_userId != "")
+            {
+                _isInitDone = true;
+                await InvokeAsync(StateHasChanged);
+            }
+            else
+            {
+                // add user to db
+            }
+        }
     }
 }

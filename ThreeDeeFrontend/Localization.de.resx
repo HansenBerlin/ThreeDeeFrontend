@@ -33,4 +33,97 @@
     <data name="DropDownSharedFiles" xml:space="preserve">
         <value>geteilte Dateien</value>
     </data>
+    <data name="SharedMainPageTitle" xml:space="preserve">
+        <value>3D Dateien Management System</value>
+    </data>
+    <data name="SharedMainDropDownLibrary" xml:space="preserve">
+        <value>Bibliothek</value>
+    </data>
+    <data name="SharedMainDropDownFiles" xml:space="preserve">
+        <value>Dateien</value>
+    </data>
+    <data name="SharedMainDarkModeDark" xml:space="preserve">
+        <value>DUNKEL</value>
+    </data>
+    <data name="SharedMainDarkModeLight" xml:space="preserve">
+        <value>HELL</value>
+    </data>
+    <data name="SharedLoginWelcomeText" xml:space="preserve">
+        <value>Hallo</value>
+    </data>
+    <data name="SharedLoginLogOut" xml:space="preserve">
+        <value>Ausloggen</value>
+    </data>
+    <data name="SharedLoginRegister" xml:space="preserve">
+        <value>Registrieren</value>
+    </data>
+    <data name="SharedLoginLogIn" xml:space="preserve">
+        <value>Einloggen</value>
+    </data>
+    <data name="PagesIndexTitle" xml:space="preserve">
+        <value>Dateien</value>
+    </data>
+    <data name="PagesGCodeAnalyzerDownload" xml:space="preserve">
+        <value>Herunterladen</value>
+    </data>
+    <data name="PagesFileCardCreatedBy" xml:space="preserve">
+        <value>erstellt von:</value>
+    </data>
+    <data name="PagesFileCardOn" xml:space="preserve">
+        <value>am</value>
+    </data>
+    <data name="PagesFileCardGCode" xml:space="preserve">
+        <value>GCode</value>
+    </data>
+    <data name="PagesFileCardComments" xml:space="preserve">
+        <value>Kommentare</value>
+    </data>
+    <data name="PagesFileCardDownload" xml:space="preserve">
+        <value>Herunterladen</value>
+    </data>
+    <data name="PagesFileCardUploadGCode" xml:space="preserve">
+        <value>GCode hochladen</value>
+    </data>
+    <data name="PagesFileCardNewComment" xml:space="preserve">
+        <value>neues Kommentar</value>
+    </data>
+    <data name="PagesLayoutProdError" xml:space="preserve">
+        <value>Ein Fehler ist aufgetreten. Diese Anwendung reagiert möglicherweise nicht mehr, bis sie neu geladen wird.</value>
+    </data>
+    <data name="PagesLayoutDevError" xml:space="preserve">
+        <value>Eine nicht behandelte Ausnahme aufgetreten. Einzelheiten finden Sie unter Browser-Entwicklungstools.</value>
+    </data>
+    <data name="PagesLayoutReload" xml:space="preserve">
+        <value>neu laden</value>
+    </data>
+    <data name="AppErrorAddress" xml:space="preserve">
+        <value>Sorry, unter dieser Adresse gibt es nichts.</value>
+    </data>
+    <data name="ComponentsSearchBarLabel" xml:space="preserve">
+        <value>Suche in verfügbaren Modellen</value>
+    </data>
+    <data name="ComponentsGCodeTableSuccess" xml:space="preserve">
+        <value>Erfolg</value>
+    </data>
+    <data name="ComponentsGCodeTableFilamentLengthUsed" xml:space="preserve">
+        <value>Filament verwendet in m</value>
+    </data>
+    <data name="ComponentsGCodeTablePrintingTime" xml:space="preserve">
+        <value>Druckzeit in min</value>
+    </data>
+    <data name="ComponentsGCodeTableAuthor" xml:space="preserve">
+        <value>Autor/-in</value>
+    </data>
+    <data name="ComponentsGCodeTableDetails" xml:space="preserve">
+        <value>Details</value>
+    </data>
+    <data name="ComponentsFileAccessFilterPublicFiles" xml:space="preserve">
+        <value>Öffentliche Dateien anzeigen</value>
+    </data>
+    <data name="ComponentsFileAccessFilterPrivateFiles" xml:space="preserve">
+        <value>Private Dateien anzeigen</value>
+    </data>
+    <data name="ComponentsFilesAccessFilterSharedFiles" xml:space="preserve">
+        <value>Freigegebene Dateien anzeigen</value>
+    </data>
 </root>

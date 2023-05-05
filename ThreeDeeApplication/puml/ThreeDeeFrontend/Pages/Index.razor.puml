@@ -1,0 +1,5 @@
+@startuml
+class Index <<partial>> {
+}
+Index --> "AuthenticationValidator" AuthenticationValidator
+@enduml

@@ -1,0 +1,32 @@
+@startuml
+!include .\\.\ThreeDeeApplication\Enums\FileIncident.puml
+!include .\\.\ThreeDeeApplication\Enums\Filetype.puml
+!include .\\.\ThreeDeeApplication\Models\PrintModel.puml
+!include .\\.\ThreeDeeFrontend\Components\FileAccessFilter.razor.puml
+!include .\\.\ThreeDeeFrontend\Components\FileCardPreview.razor.puml
+!include .\\.\ThreeDeeFrontend\Components\FileGrid.razor.puml
+!include .\\.\ThreeDeeFrontend\Components\FileUpload.razor.puml
+!include .\\.\ThreeDeeFrontend\Components\GCodeTable.razor.puml
+!include .\\.\ThreeDeeFrontend\Components\ModelRenderer.razor.puml
+!include .\\.\ThreeDeeFrontend\Components\SearchBar.razor.puml
+!include .\\.\ThreeDeeFrontend\Pages\FileCard.razor.puml
+!include .\\.\ThreeDeeFrontend\Pages\GCodeAnalyzer.razor.puml
+!include .\\.\ThreeDeeFrontend\Pages\Index.razor.puml
+!include .\\.\ThreeDeeFrontend\Services\AuthenticationValidator.puml
+!include .\\.\ThreeDeeFrontend\Services\ServiceCollectionExtensions.puml
+!include .\\.\ThreeDeeFrontend\ViewModels\FilesGridViewModel.puml
+!include .\\.\ThreeDeeFrontend\ViewModels\IFilesGridViewModel.puml
+!include .\\.\ThreeDeeFrontend\ViewModels\TopMenuViewModel.puml
+!include .\\.\ThreeDeeInfrastructure\Repositories\IRepository.puml
+!include .\\.\ThreeDeeInfrastructure\Repositories\Repository.puml
+!include .\\.\ThreeDeeInfrastructure\RequestModels\FileRequestModel.puml
+!include .\\.\ThreeDeeInfrastructure\ResponseModels\FileModel.puml
+!include .\\.\ThreeDeeInfrastructure\ResponseModels\IResponseBase.puml
+!include .\\.\ThreeDeeInfrastructure\ResponseModels\ResponseBase.puml
+!include .\\.\ThreeDeeInfrastructure\Services\EndpointService.puml
+!include .\\.\ThreeDeeInfrastructure\Services\IEndpointService.puml
+!include .\\.\ThreeDeeInfrastructure\Services\IJsInteropService.puml
+!include .\\.\ThreeDeeInfrastructure\Services\IThemeProviderService.puml
+!include .\\.\ThreeDeeInfrastructure\Services\JsInteropService.puml
+!include .\\.\ThreeDeeInfrastructure\Services\ThemeProviderService.puml
+@enduml

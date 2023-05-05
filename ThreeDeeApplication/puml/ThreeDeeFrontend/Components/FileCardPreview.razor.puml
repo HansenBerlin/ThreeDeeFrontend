@@ -1,0 +1,6 @@
+@startuml
+class FileCardPreview <<partial>> {
+}
+
+FileCardPreview --> "File" FileModel
+@enduml

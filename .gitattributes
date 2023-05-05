@@ -1,0 +1,5 @@
+*.stl linguist-vendored
+*.gcode linguist-vendored
+*.css linguist-vendored
+ThreeDeeFrontend/wwwroot/* linguist-vendored
+

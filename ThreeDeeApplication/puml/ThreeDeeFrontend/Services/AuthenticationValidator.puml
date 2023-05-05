@@ -1,0 +1,13 @@
+@startuml
+class AuthenticationValidator {
+    + IsAuthenticated : bool <<get>>
+    + AuthenticationValidator(authenticationStateProvider:AuthenticationStateProvider, httpClient:HttpClient)
+    + <<async>> GetAuthenticationState() : Task<bool>
+    + <<async>> GetUserId() : Task<string>
+}
+class UserModel {
+    + Id : string <<get>> <<set>>
+}
+AuthenticationValidator --> "AuthenticationStateHasChanged" EventCallback
+AuthenticationValidator +-- UserModel
+@enduml

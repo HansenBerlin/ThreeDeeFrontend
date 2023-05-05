@@ -1,0 +1,10 @@
+@startuml
+class "JsInteropService`1"<T> {
+    + JsInteropService(jsRuntimeService:IJSRuntime)
+    + <<async>> AddFile(path:string, color:string, id:int, dotnetObjRef:DotNetObjectReference<T>) : Task
+    + <<async>> ChangeColor(newColor:string, id:int) : Task
+}
+class "IJsInteropService`1"<T> {
+}
+"IJsInteropService`1" "<T>" <|-- "JsInteropService`1"
+@enduml

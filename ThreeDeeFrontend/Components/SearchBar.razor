@@ -1,8 +1,8 @@
 ﻿<MudAutocomplete
     T="string" 
     Immediate="true"
-    Label="Suche in verfügbaren Modellen"
-    @bind-Value="_selectedValue" 
+    Label="@Localization.ComponentsSearchBarLabel"
+    @bind-Value="SelectedSearchValue" 
     AdornmentIcon="@Icons.Material.Filled.Search" 
     AdornmentColor="Color.Primary"
-    SearchFunc="@Search"/>
+    SearchFunc="Search"/>

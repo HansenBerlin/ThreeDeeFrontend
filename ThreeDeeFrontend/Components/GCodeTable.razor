@@ -1,12 +1,26 @@
 ﻿@using ThreeDeeApplication.Models
-<MudDataGrid T="GCodeSettingsModel"  Items="@GCodeSettingsRepository.MockData" SortMode="@SortMode.Multiple">
+<MudDataGrid Style="padding: 0;" Items="@_gCodes" SortMode="@SortMode.Multiple" Striped="true" >
     <Columns>
-        <Column T="GCodeSettingsModel" Field="Downloads" />
-        <Column T="GCodeSettingsModel" Field="SuccessPercentage" />
-        <Column T="GCodeSettingsModel" Field="PrinterBrand" />
-        <Column T="GCodeSettingsModel" Field="PrinterModel" />
-        <Column T="GCodeSettingsModel" Field="XyzDimensions" Sortable="false" />
-        <Column T="GCodeSettingsModel" Field="Material"/>
+        <TemplateColumn Sortable="false">
+            <CellTemplate>
+                <MudStack Row>
+                    <a href="@($"/gcodefiles/{context.Item.Name}.txt")" download="@($"{context.Item.Name}.gcode")" >
+                        <MudButton Size="@Size.Small" StartIcon="@Icons.Material.Filled.Download" Color="@Color.Primary"/>
+                    </a>
+                </MudStack>
+            </CellTemplate>
+        </TemplateColumn>
+        <PropertyColumn Property="x => Math.Round((double)x.SuccessfulPrints / (x.FailedPrints + x.SuccessfulPrints), 4)" Title="@Localization.ComponentsGCodeTableSuccess" Format="p2"/>
+        <PropertyColumn Property="x => x.FilamentLengthUsed" Title="@Localization.ComponentsGCodeTableFilamentLengthUsed"/>
+        <PropertyColumn Property="x => x.PrintingTimeMinutes" Title="@Localization.ComponentsGCodeTablePrintingTime"/>
+        <PropertyColumn Property="x => x.Author" Title="@Localization.ComponentsGCodeTableAuthor"/>
+        <TemplateColumn CellClass="d-flex justify-start">
+            <CellTemplate>
+                <MudStack Row>
+                    <MudButton OnClick="() => OnButtonClicked(context.Item.Name)" Size="@Size.Small" Variant="@Variant.Filled" Color="@Color.Primary">@Localization.ComponentsGCodeTableDetails</MudButton>
+                </MudStack>
+            </CellTemplate>
+        </TemplateColumn>
     </Columns>
     <PagerContent>
         <MudDataGridPager T="GCodeSettingsModel" />

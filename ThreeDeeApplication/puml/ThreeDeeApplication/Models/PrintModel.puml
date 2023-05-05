@@ -1,0 +1,13 @@
+@startuml
+class PrintModel {
+    + Material : string <<get>> <<set>> = ""
+    + MaterialType : string <<get>> <<set>> = ""
+    + PrinterModel : string <<get>> <<set>> = ""
+    + SuccessfulPrints : int <<get>> <<set>>
+    + FailedPrints : int <<get>> <<set>>
+    + Notes : string <<get>> <<set>> = ""
+    + NozzleSize : float <<get>> <<set>>
+    + ExtruderTemperature : int <<get>> <<set>>
+    + BedTemperature : int <<get>> <<set>>
+}
+@enduml

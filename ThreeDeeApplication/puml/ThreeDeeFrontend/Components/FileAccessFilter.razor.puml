@@ -1,0 +1,5 @@
+@startuml
+class FileAccessFilter <<partial>> {
+}
+FileAccessFilter --> "Status" Filetype
+@enduml

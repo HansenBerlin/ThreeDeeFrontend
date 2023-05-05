@@ -49,12 +49,90 @@ h1:focus {
         content: "An error has occurred."
     }
 
-* {
+/** {
+    font-family: 'Segoe UI', 'Segoe UI Web', Arial, Verdana, sans-serif;
+}*/
+ 
+h4, h5, h6, p{
     font-family: 'Segoe UI', 'Segoe UI Web', Arial, Verdana, sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, p{
-    font-family: 'Segoe UI', 'Segoe UI Web', Arial, Verdana, sans-serif;
+h2, h3{
+    font-family: 'JetBrains Mono', Arial, Verdana, sans-serif;
 }
-    
-    
+
+h1 {
+    font-size: 2rem; 
+    font-weight: 400; 
+    margin-top: 30px; 
+    font-family: 'JetBrains Mono', Arial, Verdana, sans-serif;
+}
+
+.statstable {
+    font-family: 'Segoe UI', 'Segoe UI Web', Arial, Verdana, sans-serif;
+    font-weight: bold;
+    border-collapse: collapse;
+}
+
+.statstable td, .statstable th {
+    border: 1px solid #32333d;
+    padding: 4px;
+    background-color: #27272f;
+    color: #f1f1f1;
+}
+
+
+/*.customers tr:hover {
+    background-color: #ddd;
+}*/
+
+.statstable th {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    text-align: left;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url(../fonts/JetBrainsMono-Regular.ttf)format('truetype');
+}
+
+@font-face {
+    font-family: 'JetBrains Mono SemiBold';
+    src: url(../fonts/JetBrainsMono-SemiBold.ttf)format('truetype');
+}
+.page-background {
+    background-image:url(../pictures/background.png);
+    background-size: cover;
+    height: calc(100% + 64px);
+    margin-top: -64px;
+}
+
+.left-content {
+    padding-left: 15%;
+    padding-top: 13%;
+    width: 524px;
+}
+
+.mud-expand-panel-content{
+    padding: 0!important;
+}
+
+
+.auth-info{
+    height: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15%;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    background: #35363c;
+    padding: 20px;
+    align-items: center;
+    margin-top: 100px;
+}

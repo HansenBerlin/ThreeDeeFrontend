@@ -1,21 +1,30 @@
-@page "/"
+@page "/" 
 @using ThreeDeeFrontend.Components
-<MudContainer MaxWidth="MaxWidth.Large">
-    <MudText Style="padding-top: 50px;" Typo="Typo.h2">Files</MudText>
-    <SearchBar 
-        FilteredFilesHaveChanged="async (v) => await OnFilteredValueChanged(v)"/>
-    <MudGrid Style="margin-top: 25px;">
-        @foreach (var file in _filteredFiles)
-        {
-            <MudItem xs="3" Style="padding: 0; margin: 0;">
-                <MudContainer
-                    Style="padding: 0; margin: 0;"
-                    Class="d-flex align-center justify-center mud-width-full">
-                    <FileCardPreview
-                        File="@file"
-                        ButtonClicked="OnButtonClicked"/>
-                </MudContainer>
-            </MudItem>
-        }
-    </MudGrid>
-</MudContainer>
+<PageTitle>3D Druck einfach gemacht</PageTitle>
+
+@if (_isInitDone && _isAuthenticated)
+{
+    <FileGrid UserId="@_userId"/>
+}
+else if (_isInitDone && _isAuthenticated == false)
+{
+    <MudText>
+        Something went wrong fetching your user id from the server. Please try again or contact
+        <MudLink
+            Href="/support">
+            support
+        </MudLink>
+    </MudText>
+}
+else
+{
+    <div class="auth-info">
+        <MudProgressCircular 
+            Color="Color.Primary" Size="Size.Large" 
+            Indeterminate="true" />
+        <MudText
+            Typo="Typo.h3">
+            Authenticating user
+        </MudText>
+    </div>
+}

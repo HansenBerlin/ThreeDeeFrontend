@@ -1,0 +1,5 @@
+@startuml
+class GCodeTable <<partial>> {
+    + Id : string <<get>> <<set>>
+}
+@enduml

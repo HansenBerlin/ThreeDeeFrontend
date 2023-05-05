@@ -1,0 +1,14 @@
+.header-div{
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.speed-table{
+    font-family: 'JetBrains Mono', sans-serif;
+    font-weight: 400;
+    text-align: right;
+}
+

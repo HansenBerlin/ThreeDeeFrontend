@@ -1,9 +1,7 @@
 ﻿FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 WORKDIR /app
-EXPOSE 5000
-EXPOSE 5001
 EXPOSE 80
-EXPOSE 443
+
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
@@ -12,6 +10,7 @@ COPY ["ThreeDeeApplication/ThreeDeeApplication.csproj", "ThreeDeeApplication/"]
 COPY ["ThreeDeeInfrastructure/ThreeDeeInfrastructure.csproj", "ThreeDeeInfrastructure/"]
 RUN dotnet restore "ThreeDeeFrontend/ThreeDeeFrontend.csproj"
 COPY . .
+RUN find -type d -name bin -prune -exec rm -rf {} \; && find -type d -name obj -prune -exec rm -rf {} \;
 WORKDIR "/src/ThreeDeeFrontend"
 RUN dotnet build "ThreeDeeFrontend.csproj" -c Release -o /app/build
 
@@ -20,5 +19,6 @@ RUN dotnet publish "ThreeDeeFrontend.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
+#ENV ASPNETCORE_URLS="http://+:5000"
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "ThreeDeeFrontend.dll"]

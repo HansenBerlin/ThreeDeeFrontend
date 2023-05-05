@@ -10,7 +10,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="MudBlazor" Version="6.1.8" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="7.0.4" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.MicrosoftAccount" Version="7.0.4" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
+      <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.6" />
+      <PackageReference Include="MudBlazor" Version="6.2.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.4" />
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.4" />
+      <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.4" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.4" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.4" />        
     </ItemGroup>
 
     <ItemGroup>
@@ -22,6 +31,10 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Localization.de.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
     </ItemGroup>
 
     <ItemGroup>
@@ -38,12 +51,24 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="wwwroot\assets" />
+      <ProjectReference Include="..\ThreeDeeApplication\ThreeDeeApplication.csproj" />
+      <ProjectReference Include="..\ThreeDeeInfrastructure\ThreeDeeInfrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ThreeDeeApplication\ThreeDeeApplication.csproj" />
-      <ProjectReference Include="..\ThreeDeeInfrastructure\ThreeDeeInfrastructure.csproj" />
+      <Content Update="wwwroot\gcodefiles\Banshee.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\gcodefiles\Bolt.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\gcodefiles\PrinterTest.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="wwwroot\assets\icons\" />
     </ItemGroup>
 
 </Project>

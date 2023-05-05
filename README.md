@@ -250,7 +250,7 @@ builder.Services.AddScoped<IJsInteropService<ModelRenderer>, JsInteropService<Mo
 builder.Services.AddScoped<IThemeProviderService, ThemeProviderService>();
 ```
 
-In der launchsettings.jon könnt ihr z.B. den Port ändern unter dem die Anwendung lokal läuft (falls es da nen Konflikt geben sollte).
+In der launchsettings.json könnt ihr z.B. den Port ändern unter dem die Anwendung lokal läuft (falls es da nen Konflikt geben sollte).
 ```json
 {
   "profiles": {
@@ -498,8 +498,22 @@ Was für uneren Usecase besser ist müssen wir zusammen überlegen. Das Template
 mehr dazu hier: [MS Doku Blazor Hostingmodelle](https://learn.microsoft.com/de-de/aspnet/core/blazor/hosting-models?view=aspnetcore-7.0)
 
 ### async und await
+Async und Await sind Schlüsselwörter in C# für asynchrone Programmierung. Sie ermöglichen es einem Programm, eine asynchrone Aufgabe auszuführen und in der Zwischenzeit andere Aufgaben auszuführen, ohne auf das Ergebnis der asynchronen Aufgabe warten zu müssen.
 
+Das Async-Schlüsselwort wird verwendet, um eine Methode als asynchron zu deklarieren. Es ist eine Möglichkeit für eine Methode, eine asynchrone Aufgabe auszuführen und währenddessen nicht zu blockieren. Async-Methode gibt normalerweise eine Aufgabe (Task) zurück.
 
+Das Await-Schlüsselwort wird innerhalb einer Async-Methode verwendet, um auf das Ergebnis einer asynchronen Aufgabe zu warten, ohne die Ausführung des Programms zu blockieren. Wenn Sie eine Methode mit dem Await-Schlüsselwort aufrufen, wird die Ausführung der aktuellen Methode angehalten, bis die asynchrone Aufgabe abgeschlossen ist. Währenddessen kann das Programm andere Aufgaben ausführen.
+
+```csharp
+public async Task<int> DoSomethingAsync()
+{
+    // Führt eine asynchrone Aufgabe aus
+    await Task.Delay(1000);
+
+    // Gibt das Ergebnis zurück
+    return 42;
+}
+```
 ### Lambdas
 ### Events und Event Callbacks
 ### Dependency Injection

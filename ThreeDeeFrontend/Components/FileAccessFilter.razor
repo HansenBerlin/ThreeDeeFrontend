@@ -1,0 +1,20 @@
+@using ThreeDeeApplication.Enums
+
+<MudTooltip Text="@Localization.ComponentsFileAccessFilterPublicFiles">
+    <MudIconButton
+        Color="Status == Filetype.Public ? Color.Primary : Color.Default"
+        Variant="Variant.Filled"
+        OnClick="async () => { await OnStatusButtonClicked(Filetype.Public); }"
+        Size="Size.Large"
+        Icon="@Icons.Material.Filled.Public">
+    </MudIconButton>
+</MudTooltip>
+<MudTooltip Text="@Localization.ComponentsFileAccessFilterPrivateFiles">
+    <MudIconButton
+        Color="Status == Filetype.Private ? Color.Primary : Color.Default"
+        Variant="Variant.Filled"
+        OnClick="async () => { await OnStatusButtonClicked(Filetype.Private); }"
+        Size="Size.Large"
+        Icon="@Icons.Material.Filled.PublicOff">
+    </MudIconButton>
+</MudTooltip>

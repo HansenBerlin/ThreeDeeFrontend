@@ -1,0 +1,11 @@
+@startuml
+interface IFilesGridViewModel {
+    Init(userId:string) : Task
+    SelectedSearchValue : string <<get>> <<set>>
+    UpdateFilteredFiles(searchValue:string) : Task<IEnumerable<string>>
+    UpdateFilteredFiles(newStatus:Filetype) : Task
+}
+
+IFilesGridViewModel --> "FilesChanged" EventCallback
+IFilesGridViewModel --> "FileAccessStatus" Filetype
+@enduml

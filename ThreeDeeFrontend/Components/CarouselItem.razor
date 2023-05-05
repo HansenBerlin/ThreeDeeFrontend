@@ -1,0 +1,17 @@
+<MudCarouselItem Transition="Transition.Fade" 
+                 Color="@Color">
+    <div class="d-flex" style="height:100%">
+        <MudImage 
+            Src="@ImagePath" 
+            Style="@($"background-color: {ImageBackground}; padding: {(IsImageBorderless ? "0" : "30px")}")"
+            Elevation="0"/>
+        <div style="display: flex; flex-direction: column; justify-content: center; padding: 50px;">
+            <h2 style="font-size: 2rem;">
+                @Header
+            </h2>
+            <MudText Style="margin-top: 10px; font-size: 1.2rem;">
+                @Content
+            </MudText>
+        </div>
+    </div>
+</MudCarouselItem>
